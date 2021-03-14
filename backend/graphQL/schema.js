@@ -113,11 +113,10 @@ const RootQueryType = new GraphQLObjectType({
   name: 'Query',
   description: 'Root Query',
   fields: () => ({
-    shows: {
+    shows: { // get ALL shows
       type: new GraphQLList(showType),
       description: '',
 
-      // args: {id: {type: GraphQLInt}},
       resolve: () => {
         return Show.find({}).then(data => {
           return (data)
@@ -126,17 +125,25 @@ const RootQueryType = new GraphQLObjectType({
         });
       }
     },
-    show: {
+    show: { // Get show by name
       type: showType,
       name: 'A show',
-      args: {id: {type: GraphQLInt}},
+      args: {name: {type: GraphQLString}},
+
       resolve: (parent, args) => {
-        return Show.findOne({id: args.id}).then(data => {
+        return Show.findOne({name: args.name}).then(data => {
           return data
         }).catch(err => {
           throw err
         });
       }
+      // EXAMPLE: 
+      // show(name:"Penny Dreadful"){
+      //   url
+      //   rating{
+      //     average
+      //   }
+      // }
     }
   })
 })

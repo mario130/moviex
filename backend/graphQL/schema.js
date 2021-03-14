@@ -148,8 +148,59 @@ const RootQueryType = new GraphQLObjectType({
   })
 })
 
+const RootMutationType = new GraphQLObjectType({
+  name: "Mutation",
+  description: "Root Mutation",
+  fields: () => ({
+    addShow: {
+      type: showType,
+      description: "Add a new show",
+      args: {
+        id: {type: GraphQLInt},
+        name: {type: GraphQLNonNull(GraphQLString)},
+        url: {type: GraphQLString},
+        type: {type: GraphQLString},
+        language: {type: GraphQLString},
+        genres: {type: GraphQLList(GraphQLString)},
+        status: {type: GraphQLString},
+        runtime: {type: GraphQLInt},
+        premiered: {type: GraphQLString},
+        officialSite: {type: (GraphQLString)},
+        weight: {type: GraphQLInt},
+        summary: {type: GraphQLNonNull(GraphQLString)},
+        updated: {type: GraphQLInt},
+      },
+      resolve: (parent, args) => {
+        let newShow = new Show({
+          id: args.id,
+          name: args.name,
+          url: args.url,
+          type: args.type,
+          language: args.language,
+          genres: args.genres,
+          status: args.status,
+          runtime: args.runtime,
+          premiered: args.premiered,
+          officialSite: args.officialSite,
+          weight: args.weight,
+          summary: args.summary,
+          updated: args.updated,
+        })
+        return newShow.save()
+      } 
+    }
+  })
+  // EXAMPLE
+  // mutation{
+  //   addShow(name: "test", summary: "test summary"){
+  //     name,
+  //   }
+  // }
+})
+
 const schema = new GraphQLSchema({
-  query: RootQueryType
+  query: RootQueryType,
+  mutation: RootMutationType
 })
 
 exports.schema = schema;

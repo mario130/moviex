@@ -2,17 +2,18 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const showSch = new Schema({
-  id: {
-    type: Number,
-    required: true,
-    unique: true
-  },
+  // id: {   //Should be provided automatically
+  //   type: Number,
+  //   required: true,
+  //   unique: true
+  // },
   url: {
     type: String,
     // required: true
   },
   name: {
     type: String,
+    unique: true
     // required: true
   },
   type: {

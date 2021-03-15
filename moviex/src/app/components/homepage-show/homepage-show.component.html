@@ -1,0 +1,26 @@
+<div class="container">
+  <nav class="navbar navbar-dark bg-primary">
+    <a class="navbar-brand" href="">Apollo For Angular</a>
+  </nav>
+
+  <div *ngIf="loading">
+    <p>loading</p>
+  </div>
+
+  <div *ngIf="error">
+    <p>error</p>
+  </div>
+
+  <div class="row">
+    <div class="col-3 px-2" *ngFor="let show of shows">
+      <div class="card my-3" >
+        <img [src]="show.image.medium" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{show.name}}</h5>
+          <!-- <p class="card-text" [innerHTML]="show.summary"></p> -->
+          <a [href]="show.url" class="btn btn-outline-primary">Visit show</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

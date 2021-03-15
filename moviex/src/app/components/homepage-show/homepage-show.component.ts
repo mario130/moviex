@@ -1,13 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
-import { Show } from '../shared/show';
+import { Show } from '../../shared/show';
 
 @Component({
-  selector: 'app-graph-ql',
-  templateUrl: './graph-ql.component.html',
-  styleUrls: ['./graph-ql.component.scss']
+  selector: 'app-homepage-show',
+  templateUrl: './homepage-show.component.html',
+  styleUrls: ['./homepage-show.component.scss']
 })
-export class GraphQLComponent implements OnInit {
+export class HomepageShowComponent implements OnInit {
   shows: Observable<Show[]>;
   loading = true;
   error: any;
@@ -22,6 +22,11 @@ export class GraphQLComponent implements OnInit {
         shows {
           name
           weight
+          summary
+          image{
+            medium
+          }
+          url
       }
     }
       `,

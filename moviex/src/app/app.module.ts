@@ -9,6 +9,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { GraphQLComponent } from './graph-ql/graph-ql.component';
 import { HomepageShowComponent } from './components/homepage-show/homepage-show.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MoviesComponent } from './components/movies/movies.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -16,13 +18,15 @@ import { FooterComponent } from './components/footer/footer.component';
     HeaderComponent,
     GraphQLComponent,
     HomepageShowComponent,
-    FooterComponent
+    FooterComponent,
+    MoviesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     GraphQLModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

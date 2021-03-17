@@ -11,6 +11,7 @@ import { HomepageShowComponent } from './components/homepage-show/homepage-show.
 import { FooterComponent } from './components/footer/footer.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { FormsModule } from '@angular/forms';
+import { SingleShowComponent } from './components/single-show/single-show.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { FormsModule } from '@angular/forms';
     GraphQLComponent,
     HomepageShowComponent,
     FooterComponent,
-    MoviesComponent
+    MoviesComponent,
+    SingleShowComponent
   ],
   imports: [
     BrowserModule,

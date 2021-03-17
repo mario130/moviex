@@ -8,13 +8,15 @@ import { GraphQLModule } from './graphql.module';
 import { HttpClientModule } from '@angular/common/http';
 import { GraphQLComponent } from './graph-ql/graph-ql.component';
 import { HomepageShowComponent } from './components/homepage-show/homepage-show.component';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     GraphQLComponent,
-    HomepageShowComponent
+    HomepageShowComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

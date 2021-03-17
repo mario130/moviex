@@ -1,1 +1,3 @@
-# moviex
+# moviex - mahfouz
+
+## adding front end and 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Show } from '../../shared/show';
+import { Router} from '@angular/router';
 import{MoviesPagenationServiceService} from'./services/movies-pagenation-service.service';
 
 @Component({
@@ -19,7 +20,7 @@ export class MoviesComponent implements OnInit {
   pagedItems: any[];
   len : number;
   
-  constructor(private apollo: Apollo , private moviesService : MoviesPagenationServiceService) {}
+  constructor(private router:Router,private apollo: Apollo , private moviesService : MoviesPagenationServiceService) {}
   ngOnInit() {
     // this.pageIndexFromLocalStorage = localStorage.getItem("pageIndex")
     // this.getShow()
@@ -66,5 +67,11 @@ export class MoviesComponent implements OnInit {
       this.pager.startIndex,
       this.pager.endIndex + 1
     );
+  }
+  // singleShow/:name
+  movieDetails(showName){
+    console.log(showName);
+    this.router.navigate(['/singleShow',showName]);
+
   }
 }

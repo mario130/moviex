@@ -8,8 +8,9 @@
                     <div class="mv-img img-thumbnail">
                         <img [src]="show.image.medium" alt="" width="185" height="284">
                     </div>
-                    <div class="hvr-inner">
-                        <a [href]="show.url"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                    <div (click)="movieDetails(show.name)"  class="hvr-inner">
+                        <!-- [href]="show.url" -->
+                        <a href="#" > Read more <i class="ion-android-arrow-dropright"></i> </a>
                     </div>
                     <div class="title-in">
                         <h6><a href="#">{{show.name}}</a></h6>

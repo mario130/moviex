@@ -1,0 +1,50 @@
+
+<div class="col-md-8">
+
+    <!--Starting items-->
+        <div class="row" style="margin-top:15px">
+            <div class="col-md-3" *ngFor="let show of pagedItems">
+                <div class="movie-item">
+                    <div class="mv-img img-thumbnail">
+                        <img [src]="show.image.medium" alt="" width="185" height="284">
+                    </div>
+                    <div class="hvr-inner">
+                        <a [href]="show.url"> Read more <i class="ion-android-arrow-dropright"></i> </a>
+                    </div>
+                    <div class="title-in">
+                        <h6><a href="#">{{show.name}}</a></h6>
+                        <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- <ul class="pagination">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+          </ul> -->
+
+          <!-- pager -->
+          <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+            <li *ngIf="pager.currentPage>1">
+                <a (click)="setPage(1)">First</a>
+            </li>
+            <li *ngIf="pager.currentPage>1">
+                <a (click)="setPage(pager.currentPage - 1)">Prev</a>
+            </li>
+            <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                <a (click)="setPage(page)">{{page}}</a>
+            </li>
+            <li *ngIf="pager.currentPage<pager.totalPages">
+                <a (click)="setPage(pager.currentPage + 1)">Next</a>
+            </li>
+            <li *ngIf="pager.currentPage<pager.totalPages">
+                <a (click)="setPage(pager.totalPages)">Last</a>
+            </li>
+        </ul>
+</div>
+
+    

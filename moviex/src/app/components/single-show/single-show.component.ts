@@ -9,11 +9,11 @@ import { Apollo, gql } from 'apollo-angular';
 })
 export class SingleShowComponent implements OnInit {
   movieName: string;
-  movieData:any;
+  movieData:{};
   loading = true;
   error: any;
-  overview:string;
-  img;
+  // overview:string;
+  // img;
   constructor(private activateRoute: ActivatedRoute, private apollo: Apollo) { }
 
   ngOnInit(): void {
@@ -49,15 +49,15 @@ export class SingleShowComponent implements OnInit {
           // this.overview.replace('</p>','');
           // this.img=result?.data?.show.image.original;
           // console.log(this.overview);
-          this.movieData.push(
-            result?.data?.show.name,
-            result?.data?.show.summary,
-            result?.data?.show.image.original,
-          )
+          this.movieData = {
+            "name" : result?.data?.show.name,
+            "summary" : result?.data?.show.summary,
+            "image" : result?.data?.show.image.original,
+          }
           // comment From Foad : i declare array and push data in it then print it 
-          console.log( "name : " + this.movieData[0]);
-          console.log( "summary : " + this.movieData[1]);
-          console.log( "image : " + this.movieData[2]);
+          console.log( "name : " + this.movieData["name"]);
+          console.log( "summary : " + this.movieData["summary"]);
+          console.log( "image : " + this.movieData["image"]);
           
           this.loading = result.loading;
           this.error = result.error;

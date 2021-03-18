@@ -16,7 +16,7 @@
         <div class="row ipad-width2">
             <div class="col-md-4 col-sm-12 col-xs-12">
                 <div class="movie-img sticky-sb">
-                    <img [src]="img" alt="">
+                    <img [src]="movieData['image']" alt="">
                     <div class="movie-btn">
                         <div class="btn-transform transform-vertical red">
                             <div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a>
@@ -35,7 +35,7 @@
             </div>
             <div class="col-md-8 col-sm-12 col-xs-12">
                 <div class="movie-single-ct main-content">
-                    <h1 class="bd-hd">{{movieName}} <span>2015</span></h1>
+                    <h1 class="bd-hd">{{movieData["name"]}} <span>2015</span></h1>
                     <div class="social-btn">
                         <a href="#" class="parent-btn"><i class="ion-heart"></i> Add to Favorite</a>
                         <div class="hover-bnt">
@@ -86,7 +86,7 @@
                                                 and defeat a virtually impossible enemy together. Earth's mightiest
                                                 heroes must come together once again to protect the world from global
                                                 extinction.</p> -->
-                                                <p>{{overview}}</p>
+                                                <p>{{movieData["summary"]}}</p>
                                             <div class="title-hd-sm">
                                                 <h4>Videos & Photos</h4>
                                                 <a href="#" class="time">All 5 Videos & 245 Photos <i
@@ -196,7 +196,7 @@
                                                 <p class="time">
                                                     17 December 2016 by <a href="#"> hawaiipierson</a>
                                                 </p>
-                                                <p>This is by far one of my favorite movies from the MCU. The
+                                                <!-- <p>This is by far one of my favorite movies from the MCU. The
                                                     introduction of new Characters both good and bad also makes the
                                                     movie more exciting. giving the characters more of a back story can
                                                     also help audiences relate more to different characters better, and
@@ -206,7 +206,8 @@
                                                     words, the movie is by far better than previous movies (and I do
                                                     love everything Marvel), the plotting is splendid (they really do
                                                     out do themselves in each film, there are no problems watching it
-                                                    more than once.</p>
+                                                    more than once.</p> -->
+                                                    <p> {{movieData["summary"]}}</p>
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-xs-12 col-sm-12">

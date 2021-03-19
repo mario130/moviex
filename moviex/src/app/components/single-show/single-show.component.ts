@@ -33,7 +33,7 @@ export class SingleShowComponent implements OnInit {
         .watchQuery({
           query: gql`
         {
-          show(name: ${this.movieName}) {
+          show(name: "${this.movieName}") {
           name
          summary
          image{
@@ -44,11 +44,7 @@ export class SingleShowComponent implements OnInit {
         `,
         })
         .valueChanges.subscribe((result: any) => {
-          // this.movieData = result?.data?.show.name;
-          // this.overview=result?.data?.show.summary;
-          // this.overview.replace('</p>','');
-          // this.img=result?.data?.show.image.original;
-          // console.log(this.overview);
+         
           this.movieData = {
             "name" : result?.data?.show.name,
             "summary" : result?.data?.show.summary,

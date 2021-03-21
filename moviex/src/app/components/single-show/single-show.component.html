@@ -14,16 +14,18 @@
                     <img [src]="movieData['image']" alt="">
                     <div class="movie-btn">
                         <div class="btn-transform transform-vertical red">
-                            <div><a href="#" class="item item-1 redbtn"> <i class="ion-play"></i> Watch Trailer</a>
+                            <div><a href="#" class="item item-1 redbtn"> <i class="far fa-play-circle"></i> Watch Trailer</a>
                             </div>
                             <div><a href="https://www.youtube.com/embed/o-0hcF97wy0"
-                                    class="item item-2 redbtn fancybox-media hvr-grow"><i class="ion-play"></i></a>
+                                    class="item item-2 redbtn fancybox-media hvr-grow"><i class="far fa-play-circle"></i></a>
                             </div>
                         </div>
                         <div class="btn-transform transform-vertical">
-                            <div><a href="#" class="item item-1 yellowbtn"> <i class="ion-card"></i> Buy ticket</a>
+                            <div><a href="#" class="item item-1 yellowbtn"> <i class="fas fa-shopping-cart"></i> Buy
+                                    ticket</a>
                             </div>
-                            <div><a href="#" class="item item-2 yellowbtn"><i class="ion-card"></i></a></div>
+                            <div><a href="#" class="item item-2 yellowbtn"><i class="fas fa-shopping-cart"></i></a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -34,32 +36,33 @@
                     <div class="social-btn">
                         <a href="#" class="parent-btn"><i class="fas fa-heart"></i> Add to Favorite</a>
                         <div class="hover-bnt">
-                            <a href="#" class="parent-btn"><i class="ion-android-share-alt"></i>share</a>
+                            <a href="#" class="parent-btn"><i class="fas fa-share-alt"></i>share</a>
                             <div class="hvr-item">
-                                <a href="#" class="hvr-grow"><i class="ion-social-facebook"></i></a>
-                                <a href="#" class="hvr-grow"><i class="ion-social-twitter"></i></a>
-                                <a href="#" class="hvr-grow"><i class="ion-social-googleplus"></i></a>
-                                <a href="#" class="hvr-grow"><i class="ion-social-youtube"></i></a>
+                                <a href="#" class="hvr-grow"><i class="fab fa-facebook"></i></a>
+                                <a href="#" class="hvr-grow"><i class="fab fa-twitter"></i></a>
+                                <a href="#" class="hvr-grow"><i class="fab fa-google-plus"></i></a>
+                                <a href="#" class="hvr-grow"><i class="fab fa-youtube"></i></a>
                             </div>
                         </div>
                     </div>
                     <div class="movie-rate">
                         <div class="rate">
                             <i class="ion-android-star"></i>
-                            <p><span>Rating:{{movieData["rating"]}}</span><br>
+                            <p><span>Rating:{{movieData["rating"]}}</span>
                             </p>
                         </div>
-                        <div class="rate-star" style="color:yellow;">
+                        <div class="rate-star">
                             <p>Rate This Movie: </p>
                             <i *ngFor="let indx of rateMovie" class="fas fa-star"></i>
-                           
-                            <i *ngFor="let indx of notRateMovie" class="ion-ios-star-outline"></i>
+                            <i *ngFor="let indx of notRateMovie" class="ion-android-star"></i>
                         </div>
                     </div>
                     <div class="movie-tabs">
                         <div class="tabs">
                             <ul class="tab-links tabs-mv">
-                                <li class="active"><a href="#"><h3>Overview</h3></a></li>
+                                <li class="active"><a href="#">
+                                        <h3>Overview</h3>
+                                    </a></li>
 
                             </ul>
                             <div class="tab-content">
@@ -70,17 +73,17 @@
                                             <div class="title-hd-sm">
                                                 <h4>Summary</h4>
                                             </div>
-                                            <div class="mvsingle-item ov-item"> 
+                                            <div class="mvsingle-item ov-item">
                                                 <p [innerHTML]="movieData['summary']"></p>
                                             </div>
-                                            <!--URL-->                                           
+                                            <!--URL-->
                                             <div class="title-hd-sm">
                                                 <h4>URL</h4>
-                                                <a href="#" class="text-light" >{{movieData["url"]}}</a>                                                
+                                                <a href="#" class="text-light">{{movieData["url"]}}</a>
                                             </div>
                                         </div>
                                         <div class="col-md-4 col-xs-12 col-sm-12">
-                                              
+
                                             <div class="sb-it">
                                                 <h6>Genres:</h6>
                                                 <p>

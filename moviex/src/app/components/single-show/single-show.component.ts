@@ -9,9 +9,12 @@ import { Apollo, gql } from 'apollo-angular';
 })
 export class SingleShowComponent implements OnInit {
   movieName: string;
-  movieData:{};
+  movieData: {};
   loading = true;
   error: any;
+  ratValue: number;
+  rateMovie: number[] = [];
+  notRateMovie:number[] = [];
   // overview:string;
   // img;
   constructor(private activateRoute: ActivatedRoute, private apollo: Apollo) { }
@@ -26,7 +29,7 @@ export class SingleShowComponent implements OnInit {
         this.movieName = "name not sended";
       }
       //typeof(NaN)
-      console.log(`from single show ${this.movieName}`)
+      // console.log(`from single show ${this.movieName}`)
 
 
       this.apollo
@@ -37,24 +40,57 @@ export class SingleShowComponent implements OnInit {
           name
          summary
          image{
-          original
+          medium
         }
+        rating{
+          average
+        }
+        network{
+          name
+        }
+        genres
+        url
+        runtime
+        type
           }      
          }
         `,
         })
         .valueChanges.subscribe((result: any) => {
-         
+
           this.movieData = {
-            "name" : result?.data?.show.name,
-            "summary" : result?.data?.show.summary,
-            "image" : result?.data?.show.image.original,
+            "name": result?.data?.show.name,
+            "image": result?.data?.show.image.medium,
+            "summary": result?.data?.show.summary,
+            "rating": result?.data?.show.rating.average,
+            'genres': result?.data?.show.genres,
+            "url": result?.data?.show.url,
+            "runtime": result?.data?.show.runtime,
+            "type": result?.data?.show.type,
+            "channel": result?.data?.show.network.name
           }
-          // comment From Foad : i declare array and push data in it then print it 
-          console.log( "name : " + this.movieData["name"]);
-          console.log( "summary : " + this.movieData["summary"]);
-          console.log( "image : " + this.movieData["image"]);
-          
+          this.ratValue=parseInt(this.movieData['rating']);
+          for (let indx = 0; indx < this.ratValue; indx++) {
+            this.rateMovie[indx] = indx;
+
+          }
+          for (let indx = 10; indx > this.ratValue; indx--) {
+            this.notRateMovie[10-indx] = 10-indx;
+
+          }
+
+         
+          console.log("name : " + this.movieData["name"]);
+          console.log("summary : " + this.movieData["summary"]);
+          console.log("image : " + this.movieData["image"]);
+          console.log("rating : " + this.movieData["rating"]);
+          console.log("genres : " + this.movieData["genres"]);
+          console.log("channel : " + this.movieData["channel"]);
+          console.log("rate array: ", this.rateMovie);
+          console.log("not rate array: ", this.notRateMovie);
+
+
+
           this.loading = result.loading;
           this.error = result.error;
         });

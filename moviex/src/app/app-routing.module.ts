@@ -4,7 +4,7 @@ import { HomepageShowComponent } from './components/homepage-show/homepage-show.
 import { SingleShowComponent } from './components/single-show/single-show.component';
 
 const routes: Routes = [
-  // {path:'',redirectTo:'/home',pathMatch:'full'},
+  {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'home',component:HomepageShowComponent},
   {path:'singleShow/:name',component:SingleShowComponent},
 ];

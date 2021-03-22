@@ -16,7 +16,7 @@
       <div class="card my-3" >
         <img [src]="show.image.medium" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{show.name}}</h5>          
+          <h5 class="card-title">{{show.name}}</h5>
           <a [href]="show.url" class="btn btn-outline-primary">Visit show</a>
         </div>
       </div>
@@ -29,8 +29,8 @@
 
 <div class="slider movie-items">
 	<div class="container">
-		<div class="row">			
-	    	<div class="slick-multiItemSlider">	    	
+		<div class="row">
+	    	<div class="slick-multiItemSlider">
 				<div class="movie-item" *ngFor="let show of newArr">
 	    			<div class="mv-img">
 	    				<a href="#"><img src="/assets/files/images/uploads/slider2.jpg" alt="" width="285" height="437"></a>
@@ -136,68 +136,15 @@
 	<div class="container">
 		<div class="row ipad-width">
 			<div class="col-md-4">
+
 				<div class="sidebar">
-					<div class="searh-form">
-						<h4 class="sb-title">Search for movie</h4>
-						<form class="form-style-1" action="#">
-							<div class="row">
-								<div class="col-md-12 form-it">
-									<label>Movie name</label>
-									<input type="text" placeholder="Enter keywords">
-								</div>
-								<div class="col-md-12 form-it">
-									<label>Genres & Subgenres</label>
-									<div class="group-ip">
-										<select name="skills" multiple="" class="ui fluid dropdown">
-											<option value="">Enter to filter genres</option>
-											<option value="Action1">Action 1</option>
-					                        <option value="Action2">Action 2</option>
-					                        <option value="Action3">Action 3</option>
-					                        <option value="Action4">Action 4</option>
-					                        <option value="Action5">Action 5</option>
-										</select>
-									</div>	
-								</div>
-								<div class="col-md-12 form-it">
-									<label>Rating Range</label>
-									<select>
-									  <option value="range">-- Select the rating range below --</option>
-									  <option value="saab">-- Select the rating range below --</option>
-									</select>
-								</div>
-								<div class="col-md-12 form-it">
-									<label>Release Year</label>
-									<div class="row">
-										<div class="col-md-6">
-											<select>
-											  <option value="range">From</option>
-											  <option value="number">10</option>
-											</select>
-										</div>
-										<div class="col-md-6">
-											<select>
-											  <option value="range">To</option>
-											  <option value="number">20</option>
-											</select>
-										</div>
-									</div>
-								</div>
-								<div class="col-md-12 ">
-									<input class="submit" type="submit" value="submit">
-								</div>
-							</div>
-						</form>
-					</div>
-					<div class="ads">
-						<img src="/files/images/uploads/ads1.png" alt="">
-					</div>
-					
+          <app-sidebar (selectedGenre)="showFilteredShows($event)"></app-sidebar>
 				</div>
 			</div>
-			
+
 			<!--Starting items-->
 			<!-- foad comment this -->
-			<app-movies></app-movies>
+			<app-movies [selectedGenre]="selectedGenre"></app-movies>
 			<!-- <div class="col-md-8">
 
 					<div class="row" style="margin-top:15px">
@@ -224,7 +171,7 @@
 						<li><a href="#">4</a></li>
 						<li><a href="#">5</a></li>
 					  </ul>
-				
+
 			   </div>
 					 -->
 					<!-- Items-->
@@ -260,8 +207,8 @@
 					    <div>
 					    	<iframe class="item-video" src="" data-src="https://www.youtube.com/embed/NxhEZG0k9_w"></iframe>
 					    </div>
-						
-						
+
+
 					</div>
 					<div class="slider-nav-2 thumb-ft">
 						<div class="item">
@@ -296,7 +243,7 @@
 								<img src="/assets/files/images/uploads/trailer3.png" alt="photo by Alexander Dimitrov" width="100" height="56">
 							</div>
 							<div class="trailer-infor">
-	                        	<h4 class="desc">Logan: Director James Mangold Interview</h4>	
+	                        	<h4 class="desc">Logan: Director James Mangold Interview</h4>
 	                        	<p>2:43</p>
 	                        </div>
 						</div>
@@ -305,22 +252,22 @@
 								<img src="/assets/files/images/uploads/trailer4.png" alt="photo by Wojciech Szaturski" width="100" height="56">
 							</div>
 							<div class="trailer-infor">
-	                        	<h4 class="desc">Beauty and the Beast: Official Teaser Trailer 2</h4>	
+	                        	<h4 class="desc">Beauty and the Beast: Official Teaser Trailer 2</h4>
 	                        	<p>2: 32</p>
-	                        </div>	
+	                        </div>
 						</div>
 						<div class="item">
 							<div class="trailer-img">
 								<img src="/assets/files/images/uploads/trailer5.jpg" alt="photo by Wojciech Szaturski" width="360" height="189">
 							</div>
 							<div class="trailer-infor">
-	                        	<h4 class="desc">Fast&Furious 8</h4>	
+	                        	<h4 class="desc">Fast&Furious 8</h4>
 	                        	<p>3:11</p>
-	                        </div>	
+	                        </div>
 						</div>
-					
+
 					</div>
-				</div>   
+				</div>
 			</div>
 		</div>
 	</div>
@@ -339,8 +286,8 @@
 				<div class="tabs">
 					<ul class="tab-links-3">
 						<li class="active"><a href="#tab31">#Movies </a></li>
-						<li><a href="#tab32"> #TV Shows </a></li>              
-						<li><a href="#tab33">  # Celebs</a></li>                       
+						<li><a href="#tab32"> #TV Shows </a></li>
+						<li><a href="#tab33">  # Celebs</a></li>
 					</ul>
 				    <div class="tab-content">
 				        <div id="tab31" class="tab active">
@@ -394,7 +341,7 @@
 							</div>
 							<div class="more-it">
 								<h6><a href="#">French cannibal horror “Raw” inspires L.A. theater to hand out “Barf Bags”</a></h6>
-								
+
 								<span class="time">13 hours ago</span>
 							</div>
 						</div>
@@ -424,7 +371,7 @@
 							</div>
 							<div class="tweet item" id="297462728598122498">
 							</div>
-						</div>					
+						</div>
 					</div>
 				</div>
 			</div>

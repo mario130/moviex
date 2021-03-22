@@ -11,6 +11,10 @@ export class HomepageShowComponent implements OnInit {
   shows: Observable<Show[]>;
   loading = true;
   error: any;
+  selectedGenre: string;
+  showFilteredShows(genre){
+    this.selectedGenre = genre;
+  }
 
   newArr = ['1','2','3','4','5','6']; // testing slider
 
@@ -38,7 +42,7 @@ export class HomepageShowComponent implements OnInit {
       this.shows = result?.data?.shows;
       this.loading = result.loading;
       this.error = result.error;
-    });    
+    });
   }
   ngAfterOnInit() {
     console.log(this.shows);

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
 import { Show } from '../../shared/show';
 import { Router} from '@angular/router';
@@ -10,16 +10,18 @@ import{MoviesPagenationServiceService} from'./services/movies-pagenation-service
   styleUrls: ['./movies.component.scss'],
 })
 export class MoviesComponent implements OnInit {
-  shows:[];
+  shows:any[];
+  filteredShows: any[];
   // shows: Observable<Show[]>;
   loading = true;
   error: any;
   // pageIndexFromLocalStorage:string;
-   
+  @Input() selectedGenre: string
+
   pager: any = {};
   pagedItems: any[];
   len : number;
-  
+
   constructor(private router:Router,private apollo: Apollo , private moviesService : MoviesPagenationServiceService) {}
   ngOnInit() {
     // this.pageIndexFromLocalStorage = localStorage.getItem("pageIndex")
@@ -32,6 +34,7 @@ export class MoviesComponent implements OnInit {
               name
               weight
               summary
+              genres
               rating {
                 average
               }
@@ -45,6 +48,7 @@ export class MoviesComponent implements OnInit {
       })
       .valueChanges.subscribe((result: any) => {
         this.shows = result?.data?.shows;
+        this.filteredShows = result?.data?.shows;
         console.log(this.shows.length);
         this.loading = result.loading;
         this.error = result.error;
@@ -59,14 +63,24 @@ export class MoviesComponent implements OnInit {
       });
 
   }
+  ngOnChanges(){
+    if (this.selectedGenre !== ''){
+      this.filteredShows = this.shows.filter(show => {
+        return show.genres.includes(this.selectedGenre)
+      })
+    } else {
+      this.filteredShows = this.shows
+    }
+    this.setPage(1)
+  }
   setPage(page) {
     // localStorage.setItem("pageIndex", page);
     // get pager object from service
-    this.pager = this.moviesService.getPager(this.shows.length, page,12);
+    this.pager = this.moviesService.getPager(this.filteredShows.length, page,12);
     // get current page of items
     console.log(this.pager);
-    
-    this.pagedItems = this.shows.slice(
+
+    this.pagedItems = this.filteredShows.slice(
       this.pager.startIndex,
       this.pager.endIndex + 1
     );

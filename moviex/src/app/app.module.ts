@@ -12,6 +12,7 @@ import { FooterComponent } from './components/footer/footer.component';
 import { MoviesComponent } from './components/movies/movies.component';
 import { FormsModule } from '@angular/forms';
 import { SingleShowComponent } from './components/single-show/single-show.component';
+import { SidebarComponent } from './components/sidebar/sidebar.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { SingleShowComponent } from './components/single-show/single-show.compon
     HomepageShowComponent,
     FooterComponent,
     MoviesComponent,
-    SingleShowComponent
+    SingleShowComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

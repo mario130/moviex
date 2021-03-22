@@ -1,0 +1,5 @@
+<div class="sidebar">
+  <h3>Genres</h3>
+  <p (click)="changeGenre('')">Remove filter</p>
+  <p (click)="changeGenre(genre)" *ngFor="let genre of genres">{{genre}}</p>
+</div>

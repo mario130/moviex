@@ -29,16 +29,9 @@
 
 <div class="slider movie-items">
 	<div class="container">
-		<div class="row">
-			<!-- <div class="social-link">
-				<p>Follow us: </p>
-				<a href="#"><i class="ion-social-facebook"></i></a>
-				<a href="#"><i class="ion-social-twitter"></i></a>
-				<a href="#"><i class="ion-social-googleplus"></i></a>
-				<a href="#"><i class="ion-social-youtube"></i></a>
-			</div> -->
+		<div class="row">			
 	    	<div class="slick-multiItemSlider">	    	
-				<div class="movie-item">
+				<div class="movie-item" *ngFor="let show of newArr">
 	    			<div class="mv-img">
 	    				<a href="#"><img src="/assets/files/images/uploads/slider2.jpg" alt="" width="285" height="437"></a>
 	    			</div>
@@ -47,10 +40,10 @@
 	    					<span class="yell"><a href="#">action</a></span>
 	    				</div>
 	    				<h6><a href="#">The revenant</a></h6>
-	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+	    				<p><ion-icon class="orange" name="star"></ion-icon><span>7.4</span> /10</p>
 	    			</div>
 	    		</div>
-	    		<div class="movie-item">
+	    		<!-- <div class="movie-item">
 	    			<div class="mv-img">
 	    				<a href="#"><img src="/assets/files/images/uploads/slider3.jpg" alt="" width="285" height="437"></a>
 	    			</div>
@@ -133,7 +126,7 @@
 	    				<h6><a href="#">Die hard</a></h6>
 	    				<p><i class="ion-android-star"></i><span>7.4</span> /10</p>
 	    			</div>
-	    		</div>
+	    		</div> -->
 	    	</div>
 	    </div>
 	</div>
@@ -144,17 +137,60 @@
 		<div class="row ipad-width">
 			<div class="col-md-4">
 				<div class="sidebar">
-					<!-- <div class="ads">
-						<img src="/assets/files/images/uploads/ads1.png" alt="" width="336" height="296">
-					</div> -->
-
-					<pre style="font-size:4em">
-						Here
-						will be
-						the 
-						filteration
-					</pre>
-				
+					<div class="searh-form">
+						<h4 class="sb-title">Search for movie</h4>
+						<form class="form-style-1" action="#">
+							<div class="row">
+								<div class="col-md-12 form-it">
+									<label>Movie name</label>
+									<input type="text" placeholder="Enter keywords">
+								</div>
+								<div class="col-md-12 form-it">
+									<label>Genres & Subgenres</label>
+									<div class="group-ip">
+										<select name="skills" multiple="" class="ui fluid dropdown">
+											<option value="">Enter to filter genres</option>
+											<option value="Action1">Action 1</option>
+					                        <option value="Action2">Action 2</option>
+					                        <option value="Action3">Action 3</option>
+					                        <option value="Action4">Action 4</option>
+					                        <option value="Action5">Action 5</option>
+										</select>
+									</div>	
+								</div>
+								<div class="col-md-12 form-it">
+									<label>Rating Range</label>
+									<select>
+									  <option value="range">-- Select the rating range below --</option>
+									  <option value="saab">-- Select the rating range below --</option>
+									</select>
+								</div>
+								<div class="col-md-12 form-it">
+									<label>Release Year</label>
+									<div class="row">
+										<div class="col-md-6">
+											<select>
+											  <option value="range">From</option>
+											  <option value="number">10</option>
+											</select>
+										</div>
+										<div class="col-md-6">
+											<select>
+											  <option value="range">To</option>
+											  <option value="number">20</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-12 ">
+									<input class="submit" type="submit" value="submit">
+								</div>
+							</div>
+						</form>
+					</div>
+					<div class="ads">
+						<img src="/files/images/uploads/ads1.png" alt="">
+					</div>
 					
 				</div>
 			</div>
@@ -289,7 +325,7 @@
 		</div>
 	</div>
 </div>
-<!-- latest new v1 section-->
+<!-- latest new v1 section
 <div class="latestnew">
 	<div class="container">
 		<div class="row ipad-width">
@@ -395,4 +431,4 @@
 		</div>
 	</div>
 </div>
-<!--end of latest new v1 section-->
+end of latest new v1 section-->

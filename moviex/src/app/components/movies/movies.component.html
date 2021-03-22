@@ -8,13 +8,12 @@
                     <div class="mv-img img-thumbnail">
                         <img [src]="show.image.medium" alt="" width="185" height="284">
                     </div>
-                    <div (click)="movieDetails(show.name)"  class="hvr-inner">
-                        <!-- [href]="show.url" -->
-                        <a href="#" > Read more <i class="ion-android-arrow-dropright"></i> </a>
+                    <div class="hvr-inner">                        
+                        <a href="/singleShow/{{show.name}}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
                     </div>
                     <div class="title-in">
                         <h6><a href="#">{{show.name}}</a></h6>
-                        <p><i class="ion-android-star"></i><span>7.4</span> /10</p>
+                        <p><ion-icon class="orange" name="star"></ion-icon><span>{{show.rating.average}}</span> /10</p>
                     </div>
                 </div>
             </div>

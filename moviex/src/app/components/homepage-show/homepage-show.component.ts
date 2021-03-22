@@ -12,6 +12,8 @@ export class HomepageShowComponent implements OnInit {
   loading = true;
   error: any;
 
+  newArr = ['1','2','3','4','5','6']; // testing slider
+
   constructor(private apollo: Apollo) {}
   ngOnInit(){
     // this.getShow()

@@ -32,6 +32,9 @@ export class MoviesComponent implements OnInit {
               name
               weight
               summary
+              rating {
+                average
+              }
               image {
                 medium
               }
@@ -69,9 +72,10 @@ export class MoviesComponent implements OnInit {
     );
   }
   // singleShow/:name
-  movieDetails(showName){
-    console.log(showName);
-    this.router.navigate(['/singleShow',showName]);
+  // movieDetails(showName){
+  //   console.log(showName);
+  //   this.router.navigate(['/singleShow',showName]);
+  // }
+  // replaced by direct a href
 
-  }
 }

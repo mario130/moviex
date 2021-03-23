@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { SingleShowComponent } from './components/single-show/single-show.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MovieComponent } from './components/movies/movie/movie.component';
+import { DashShowsComponent } from './dashboard/dash-shows/dash-shows.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { MovieComponent } from './components/movies/movie/movie.component';
     MoviesComponent,
     SingleShowComponent,
     SidebarComponent,
-    MovieComponent
+    MovieComponent,
+    DashShowsComponent
   ],
   imports: [
     BrowserModule,

@@ -76,7 +76,7 @@ export class MoviesComponent implements OnInit {
   setPage(page) {
     // localStorage.setItem("pageIndex", page);
     // get pager object from service
-    this.pager = this.moviesService.getPager(this.filteredShows.length, page,12);
+    this.pager = this.moviesService.getPager(this.filteredShows.length, page,16);
     // get current page of items
     console.log(this.pager);
 

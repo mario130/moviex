@@ -13,6 +13,7 @@ import { MoviesComponent } from './components/movies/movies.component';
 import { FormsModule } from '@angular/forms';
 import { SingleShowComponent } from './components/single-show/single-show.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
+import { MovieComponent } from './components/movies/movie/movie.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
     FooterComponent,
     MoviesComponent,
     SingleShowComponent,
-    SidebarComponent
+    SidebarComponent,
+    MovieComponent
   ],
   imports: [
     BrowserModule,

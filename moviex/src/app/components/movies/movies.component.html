@@ -3,8 +3,8 @@
 
     <!--Starting items-->
         <div class="row" style="margin-top:15px">
-            <div class="col-md-3" *ngFor="let show of pagedItems">
-                <div class="movie-item">
+            <div class="col-md-3 show-col" *ngFor="let show of pagedItems">
+                <!-- <div class="movie-item">
                     <div class="mv-img img-thumbnail">
                         <img [src]="show.image.medium" alt="" width="185" height="284">
                     </div>
@@ -15,7 +15,8 @@
                         <h6><a href="#">{{show.name}}</a></h6>
                         <p><ion-icon class="orange" name="star"></ion-icon><span>{{show.rating.average}}</span> /10</p>
                     </div>
-                </div>
+                </div> -->
+                <app-movie [show]="show"></app-movie>
             </div>
         </div>
 

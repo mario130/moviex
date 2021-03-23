@@ -2,9 +2,13 @@ const express = require('express');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const cors = require('cors');
+const dotenv = require('dotenv')
 const {schema} = require('./graphQL/schema');
 const expressGraphQL = require('express-graphql').graphqlHTTP;
-require('dotenv').config();
+dotenv.config();
+const userRouter = require("./router/userRouter")
+const jwt = require('./middleware/jwt');
+const errorHandler = require('./middleware/errorHandler');
 
 const app = express();
 
@@ -14,6 +18,7 @@ mongoose.connect('mongodb+srv://mario:H70GQjtWuTvrb01Z@cluster0.4o2yk.mongodb.ne
 
 app.use(bodyParser.json())
 app.use(cors())
+app.use(jwt());
 
 app.use((req, res, next)=>{
   res.setHeader("Access-Control-Allow-Origin", "*")
@@ -26,6 +31,10 @@ app.use('/graphql', expressGraphQL({
   schema: schema,
   graphiql: true,
 }))
+
+app.use('/api/users',userRouter)
+app.use('/',errorHandler);
+const PORT = process.env.PORT
 
 // app.listen(5001, () => {
 //   console.log("Server started..");

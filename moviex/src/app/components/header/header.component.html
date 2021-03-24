@@ -1,6 +1,6 @@
 <!--preloading-->
 <div id="preloader">
-    <img class="logo" src="/assets/files/images/logo_200x200.png" alt="" width="119" height="58"> 
+    <img class="logo" src="/assets/files/images/logo_200x200.png" alt="" width="119" height="58">
     <div class="brand logo">Moviex</div>
     <div id="status">
         <span></span>
@@ -12,21 +12,46 @@
 <div class="login-wrapper" id="login-content">
     <div class="login-content">
         <a href="#" class="close">x</a>
-        <h3>Login</h3>
-        <form method="post" action="login.php">
-            <div class="row">
-                <label for="username">
-                    Username:
-                    <input type="text" name="username" id="username" placeholder="Hugh Jackman" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
-                </label>
+        <h3>LOGIN</h3>
+        <form [formGroup]="loginForm" (ngSubmit)="login()" #myLoginForm="ngForm">
+            <!-- {{loginForm.value |json}} -->
+            <div class="row form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" placeholder="Hugh Jackman"
+                    pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" class="form-control"
+                    formControlName="username" 
+                    [class.invalid]="loginForm.get('username').invalid &&loginForm.get('username').touched"
+                    />
+                    
+                <div *ngIf="isValidInput('username')" class="alert alert-danger">
+                    <small *ngIf="validateRequired('username')" >
+                        Username is required.
+                    </small>
+                    <small *ngIf="validatePattern('username')" >
+                        Must be a valid username format.
+                    </small>
+                </div>
             </div>
 
-            <div class="row">
+
+            <div class="row form-group">
                 <label for="password">
-                    Password:
-                    <input type="password" name="password" id="password" placeholder="******" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
-                </label>
+                    Password:</label>
+                <input type="password" name="password" id="password" placeholder="******"
+                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                    class="form-control" formControlName="password" />
+                    <div *ngIf="isValidInput('password')" class="alert alert-danger">
+                        <small *ngIf="validateRequired('password')" >
+                            Passsword is required.
+                        </small>
+                        <small *ngIf="validatePattern('password')" >
+                            Password must be at least 8 characters [A-z]/[symbol]/[0-9].
+                        </small>
+                    </div>
             </div>
+
+           
+
             <div class="row">
                 <div class="remember">
                     <div>
@@ -36,7 +61,9 @@
                 </div>
             </div>
             <div class="row">
-                <button type="submit">Login</button>
+                <button type="submit" [disabled]="!loginForm.valid">Login</button>
+                <!-- <button type="submit" [disabled]="!myLoginForm.form.valid" class="btn btn-primary">Register</button> -->
+
             </div>
         </form>
         <div class="row">
@@ -58,26 +85,33 @@
             <div class="row">
                 <label for="username-2">
                     Username:
-                    <input type="text" name="username" id="username-2" placeholder="Hugh Jackman" pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+                    <input type="text" name="username" id="username-2" placeholder="Hugh Jackman"
+                        pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
                 </label>
             </div>
 
             <div class="row">
                 <label for="email-2">
                     your email:
-                    <input type="password" name="email" id="email-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    <input type="password" name="email" id="email-2" placeholder=""
+                        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                        required="required" />
                 </label>
             </div>
             <div class="row">
                 <label for="password-2">
                     Password:
-                    <input type="password" name="password" id="password-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    <input type="password" name="password" id="password-2" placeholder=""
+                        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                        required="required" />
                 </label>
             </div>
             <div class="row">
                 <label for="repassword-2">
                     re-type Password:
-                    <input type="password" name="password" id="repassword-2" placeholder="" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required="required" />
+                    <input type="password" name="password" id="repassword-2" placeholder=""
+                        pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                        required="required" />
                 </label>
             </div>
             <div class="row">
@@ -102,7 +136,9 @@
                         <span></span>
                     </div>
                 </div>
-                <a href="index.html"><div class="brand">Moviex</div></a>
+                <a href="index.html">
+                    <div class="brand">Moviex</div>
+                </a>
 
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
@@ -111,11 +147,11 @@
                     <li class="hidden">
                         <a href="#page-top"></a>
                     </li>
-                    <li  (click)="routeHome()">
-                        <a class="btn btn-default  lv1" >
-                            Home 
+                    <li (click)="routeHome()">
+                        <a class="btn btn-default  lv1">
+                            Home
                         </a>
-                       
+
                     </li>
                     <!-- <li class="dropdown first">
                         <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
@@ -133,10 +169,10 @@
                             <li><a href="moviesingle.html">Movie single</a></li>
                             <li class="it-last"><a href="seriessingle.html">Series single</a></li>
                         </ul>
-                    </li> -->                   
+                    </li> -->
                 </ul>
-                <ul class="nav navbar-nav flex-child-menu menu-right">   
-                                                   
+                <ul class="nav navbar-nav flex-child-menu menu-right">
+
                     <li class=""><a href="/dashboard/shows">Dashboard</a></li>
                     <li class="loginLink"><a href="#">LOG In</a></li>
                     <li class="btn signupLink"><a href="#">sign up</a></li>
@@ -144,7 +180,7 @@
             </div>
             <!-- /.navbar-collapse -->
         </nav>
-      
+
     </div>
 </header>
 
@@ -200,15 +236,20 @@
             </div>
             <!-- Modal body -->
             <div class="modal-body">
-                <form class="" target="_blank">
+                <form [formGroup]="loginForm" target="_blank">
                     <div class="form-group">
                         <label>USERNAME:</label>
-                        <input class="form-control" type="text" name="Name" required placeholder="username">
+                        <input class="form-control" type="email" name="email" class="form-control"
+                            formControlName="email" required placeholder="username">
+                    </div>
+                    <div class="form-group">
                         <label>YOUR PASSWORD:</label>
-                        <input class="form-control" type="text" name="Message" required placeholder="password">
+                        <input class="form-control" type="password" name="password" class="form-control"
+                            formControlName="password" required placeholder="password">
                     </div>
                     <div class="row p-2  d-flex justify-content-center ">
-                        <button type="submit" class="btn  btn-lg shadow-lg rounded-pill SignBtn">LOGIN</button>
+                        <button [disabled]="!loginForm.valid" type="submit"
+                            class="btn  btn-lg shadow-lg rounded-pill SignBtn">LOGIN</button>
                     </div>
                 </form>
 

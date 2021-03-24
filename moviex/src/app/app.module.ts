@@ -10,7 +10,7 @@ import { GraphQLComponent } from './graph-ql/graph-ql.component';
 import { HomepageShowComponent } from './components/homepage-show/homepage-show.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { MoviesComponent } from './components/movies/movies.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SingleShowComponent } from './components/single-show/single-show.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MovieComponent } from './components/movies/movie/movie.component';
@@ -36,7 +36,8 @@ import { Err404CompoComponent } from './components/err404-compo/err404-compo.com
     AppRoutingModule,
     GraphQLModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -202,6 +202,7 @@ export class HomepageShowComponent implements OnInit {
             medium
           }
           url
+          premiered
       }
     }
       `,

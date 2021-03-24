@@ -1,4 +1,4 @@
-<div class="movie-item">
+<!-- <div class="movie-item">
   <div class="mv-img img-thumbnail">
       <img [src]="show.image.medium" alt="" width="200" height="300">
   </div>
@@ -9,4 +9,17 @@
       <h6><a href="#">{{show.name}}</a></h6>
       <p><i class="orange fas fa-star"></i><span>{{show.rating.average}}</span> /10</p>       
   </div>
-</div>
+</div> -->
+
+
+    <div class="blog-item-style-2">
+        <a href="/singleShow/{{show.name}}"><img [src]="show.image.medium"></a>
+        <div class="blog-it-infor">
+            <h3><a href="/singleShow/{{show.name}}">{{show.name}}</a></h3>
+            <span class="time">{{show.premiered}}</span>
+            <p><i class="orange fas fa-star"></i><span>{{show.rating.average}}</span> /10</p>
+            <p [innerHTML]="show.summary.substring(0,70)"></p>
+        </div>
+    </div>
+
+    

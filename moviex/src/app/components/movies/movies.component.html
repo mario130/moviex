@@ -1,32 +1,16 @@
 
-<div class="col-md-8">
+<div class="col-md-9">
 
     <!--Starting items-->
         <div class="row" style="margin-top:15px">
-            <div class="col-md-3 col-xs-6 show-col" *ngFor="let show of pagedItems">
-                <!-- <div class="movie-item">
-                    <div class="mv-img img-thumbnail">
-                        <img [src]="show.image.medium" alt="" width="185" height="284">
-                    </div>
-                    <div class="hvr-inner">
-                        <a href="/singleShow/{{show.name}}"> Read more <i class="ion-android-arrow-dropright"></i> </a>
-                    </div>
-                    <div class="title-in">
-                        <h6><a href="#">{{show.name}}</a></h6>
-                        <p><ion-icon class="orange" name="star"></ion-icon><span>{{show.rating.average}}</span> /10</p>
-                    </div>
-                </div> -->
+            <div class="col-md-4 col-sm-12 col-xs-12" *ngFor="let show of pagedItems">
+                
                 <app-movie [show]="show"></app-movie>
             </div>
         </div>
 
-        <!-- <ul class="pagination">
-            <li><a href="#">1</a></li>
-            <li><a href="#">2</a></li>
-            <li><a href="#">3</a></li>
-            <li><a href="#">4</a></li>
-            <li><a href="#">5</a></li>
-          </ul> -->
+    
+        
 
           <!-- pager -->
           <ul *ngIf="pager.pages && pager.pages.length" class="pagination">

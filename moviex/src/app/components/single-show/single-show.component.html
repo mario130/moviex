@@ -47,12 +47,11 @@
                     </div>
                     <div class="movie-rate">
                         <div class="rate">
-                            <i class="ion-android-star"></i>
-                            <p><span>Rating:{{movieData["rating"]}}</span>
-                            </p>
+                            <i class="orange fas fa-star"></i>
+                            <p><span>Rating:</span> </p>
                         </div>
                         <div class="rate-star">
-                            <p>Rate This Movie: </p>
+                            <p>Rating Of This Movie: <span>{{movieData["rating"]}}</span> </p>
                             <i *ngFor="let indx of rateMovie" class="orange fas fa-star"></i>
                             <i *ngFor="let indx of notRateMovie" class="fas fa-star"></i>
                         </div>
@@ -106,9 +105,9 @@
                                                 <h6>Rating:</h6>
                                                 <p>{{movieData['rating']}}</p>
                                             </div>
-                                            <div class="ads">
+                                            <!-- <div class="ads">
                                                 <img src="images/uploads/ads1.png" alt="">
-                                            </div>
+                                            </div> -->
                                         </div>
                                     </div>
                                 </div>

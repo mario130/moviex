@@ -1,0 +1,66 @@
+<div class="login-wrapper" id="login-content">
+  <div class="login-content">
+      <a href="#" class="close">x</a>
+      <h3>LOGIN</h3>
+      <form [formGroup]="loginForm" (ngSubmit)="login()" #myLoginForm="ngForm">
+          <!-- {{loginForm.value |json}} -->
+          <div class="row form-group">
+              <label for="username">Username:</label>
+              <input type="text" name="username" id="username" placeholder="Hugh Jackman"
+                  pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" class="form-control"
+                  formControlName="username" 
+                  [class.invalid]="loginForm.get('username').invalid &&loginForm.get('username').touched"
+                  />
+                  
+              <div *ngIf="isValidInput('username')" class="alert alert-danger">
+                  <small *ngIf="validateRequired('username')" >
+                      Username is required.
+                  </small>
+                  <small *ngIf="validatePattern('username')" >
+                      Must be a valid username format.
+                  </small>
+              </div>
+          </div>
+
+
+          <div class="row form-group">
+              <label for="password">
+                  Password:</label>
+              <input type="password" name="password" id="password" placeholder="******"
+                  pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+                  class="form-control" formControlName="password" />
+                  <div *ngIf="isValidInput('password')" class="alert alert-danger">
+                      <small *ngIf="validateRequired('password')" >
+                          Passsword is required.
+                      </small>
+                      <small *ngIf="validatePattern('password')" >
+                          Password must be at least 8 characters [A-z]/[symbol]/[0-9].
+                      </small>
+                  </div>
+          </div>
+
+         
+
+          <div class="row">
+              <div class="remember">
+                  <div>
+                      <input type="checkbox" name="remember" value="Remember me"><span>Remember me</span>
+                  </div>
+                  <a href="#">Forget password ?</a>
+              </div>
+          </div>
+          <div class="row">
+              <button type="submit" [disabled]="!loginForm.valid">Login</button>
+              <!-- <button type="submit" [disabled]="!myLoginForm.form.valid" class="btn btn-primary">Register</button> -->
+
+          </div>
+      </form>
+      <div class="row">
+          <p>Or via social</p>
+          <div class="social-btn-2">
+              <a class="fb" href="#"><i class="ion-social-facebook"></i>Facebook</a>
+              <a class="tw" href="#"><i class="ion-social-twitter"></i>twitter</a>
+          </div>
+      </div>
+  </div>
+</div>

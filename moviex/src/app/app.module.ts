@@ -16,6 +16,8 @@ import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MovieComponent } from './components/movies/movie/movie.component';
 import { DashShowsComponent } from './dashboard/dash-shows/dash-shows.component';
 import { Err404CompoComponent } from './components/err404-compo/err404-compo.component';
+import { LoginComponent } from './components/+auth/login/login.component';
+import { SignUpComponent } from './components/+auth/signUp/signUp.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { Err404CompoComponent } from './components/err404-compo/err404-compo.com
     SidebarComponent,
     MovieComponent,
     DashShowsComponent,
-    Err404CompoComponent
+    Err404CompoComponent,
+    LoginComponent,
+    SignUpComponent
   ],
   imports: [
     BrowserModule,

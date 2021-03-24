@@ -1,5 +1,14 @@
 <div class="sidebar">
   <h3>Genres</h3>
   <p (click)="changeGenre('')">Remove filter</p>
-  <p (click)="changeGenre(genre)" *ngFor="let genre of genres">{{genre}}</p>
+  <div class="sidebar-desktop">
+    <p (click)="changeGenre(genre)" *ngFor="let genre of genres">{{genre}}</p>
+  </div>
+
+  <div class="sidebar-mobile">
+    <select name="gen" id="gen" (change)="changeGenre($event.target.value)">
+      <option *ngFor="let genre of genres" [value]="genre">{{genre}}</option>
+    </select>
+  </div>
+
 </div>

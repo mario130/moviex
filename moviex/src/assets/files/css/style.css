@@ -4090,8 +4090,11 @@ ul {
 }
 @media (max-width: 767px) {
   .movie-items .movie-item .title-in {
-    margin-left: 40px;
-    top: 230px;
+    position: relative;
+    margin-left: 10px;
+    /* top: 230px; */
+    /* top: 26vh */
+    bottom: 100px;
   }
 }
 .movie-items .movie-item .title-in h6 a {
@@ -4137,8 +4140,10 @@ ul {
 }
 @media screen and (max-width: 767px){
   .movie-items .movie-item .hvr-inner{
-  top: 300px;
-  left: 70px;
+    top: auto;
+    position: relative;
+    bottom: 103px;
+    left: 0px;
   }
 
 }

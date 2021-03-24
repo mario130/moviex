@@ -4090,7 +4090,8 @@ ul {
 }
 @media (max-width: 767px) {
   .movie-items .movie-item .title-in {
-    margin-left: 60px;
+    margin-left: 40px;
+    top: 230px;
   }
 }
 .movie-items .movie-item .title-in h6 a {
@@ -4133,6 +4134,13 @@ ul {
   -moz-transition: all 0.5s ease-out;
   -o-transition: all 0.5s ease-out;
   transition: all 0.5s ease-out;
+}
+@media screen and (max-width: 767px){
+  .movie-items .movie-item .hvr-inner{
+  top: 300px;
+  left: 70px;
+  }
+
 }
 .movie-items .movie-item .hvr-inner a {
   font-family: 'Dosis', sans-serif;

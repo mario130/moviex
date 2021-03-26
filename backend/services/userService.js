@@ -39,6 +39,7 @@ async function create(userParam) { // userParam => req.body
     }
     
     console.log("Create" + userParam.username);
+    console.log("Create isAdmin " + userParam.username);
     const user = new User(userParam);
     console.log("Create" + user);
     

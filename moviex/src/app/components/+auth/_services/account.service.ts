@@ -54,7 +54,7 @@ export class AccountService {
         return this.http.get<User>(`${environment.apiUrl}/api/users/${id}`);
     }
 
-    //http://localhost:8000/api/users/update
+    //http://localhost:8000/api/users/update/id
     update(id, params) {
         return this.http.put(`${environment.apiUrl}/api/users/${id}`, params)
             .pipe(map(x => {

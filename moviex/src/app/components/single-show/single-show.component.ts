@@ -41,6 +41,7 @@ export class SingleShowComponent implements OnInit {
          summary
          image{
           medium
+          original
         }
         rating{
           average
@@ -52,7 +53,7 @@ export class SingleShowComponent implements OnInit {
         url
         runtime
         type
-          }      
+          }
          }
         `,
         })
@@ -61,6 +62,7 @@ export class SingleShowComponent implements OnInit {
           this.movieData = {
             "name": result?.data?.show.name,
             "image": result?.data?.show.image.medium,
+            "imageOriginal": result?.data?.show.image.original,
             "summary": result?.data?.show.summary,
             "rating": result?.data?.show.rating.average,
             'genres': result?.data?.show.genres,
@@ -79,7 +81,7 @@ export class SingleShowComponent implements OnInit {
 
           }
 
-         
+
           console.log("name : " + this.movieData["name"]);
           console.log("summary : " + this.movieData["summary"]);
           console.log("image : " + this.movieData["image"]);

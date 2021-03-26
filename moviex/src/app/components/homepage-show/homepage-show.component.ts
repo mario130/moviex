@@ -132,64 +132,13 @@ export class HomepageShowComponent implements OnInit {
           "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/1/3799.jpg"
         },
         "url": "http://www.tvmaze.com/shows/233/awake"
-      },
-      {
-        "name": "The 100",
-        "weight": 100,
-        "summary": "<p>Ninety-seven years ago, nuclear Armageddon decimated planet Earth, destroying civilization. The only survivors were the 400 inhabitants of 12 international space stations that were in orbit at the time. Three generations have been born in space, the survivors now number 4,000, and resources are running out on their dying \"Ark\" - the 12 stations now linked together and repurposed to keep the survivors alive. Draconian measures including capital punishment and population control are the order of the day, as the leaders of the Ark take ruthless steps to ensure their future, including secretly exiling a group of 100 juvenile prisoners to the Earth's surface to test whether it's habitable.</p>",
-        "rating": {
-          "average": 7.9
-        },
-        "genres": [
-          "Action",
-          "Adventure",
-          "Science-Fiction"
-        ],
-        "image": {
-          "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/151/377511.jpg"
-        },
-        "url": "http://www.tvmaze.com/shows/6/the-100"
-      },
-      {
-        "name": "Brooklyn Nine-Nine",
-        "weight": 96,
-        "summary": "<p><b>Brooklyn Nine-Nine</b> is an ensemble comedy about a talented-but-carefree detective, a by-the-book police captain and their precinct colleagues. While based in the workplace, Brooklyn Nine-Nine is not really about the job – it's about the men and women behind the badge.</p>",
-        "rating": {
-          "average": 8.2
-        },
-        "genres": [
-          "Comedy",
-          "Action",
-          "Crime"
-        ],
-        "image": {
-          "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/128/321052.jpg"
-        },
-        "url": "http://www.tvmaze.com/shows/49/brooklyn-nine-nine"
-      },
-      {
-        "name": "NCIS",
-        "weight": 99,
-        "summary": "<p><b>NCIS</b> (Naval Criminal Investigative Service) is more than just an action drama. With liberal doses of humor, it's a show that focuses on the sometimes complex and always amusing dynamics of a team forced to work together in high-stress situations. Leroy Jethro Gibbs, a former Marine gunnery sergeant, whose skills as an investigator are unmatched, leads this troupe of colorful personalities. Rounding out the team are Anthony DiNozzo, an ex-homicide detective whose instincts in the field are unparalleled and whose quick wit and humorous take on life make him a team favorite; the youthful and energetic forensic specialist Abby Sciuto, a talented scientist whose sharp mind matches her Goth style and eclectic tastes; Caitlin Todd, an ex-Secret Service Agent; and Timothy McGee, an MIT graduate whose brilliance with computers far overshadows his insecurities in the field; Assisting the team is medical examiner Dr. Donald \"Ducky\" Mallard, who knows it all because he's seen it all, and he's not afraid to let you know. From murder and espionage to terrorism and stolen submarines, these special agents travel the globe to investigate all crimes with Navy or Marine Corps ties.</p>",
-        "rating": {
-          "average": 8.5
-        },
-        "genres": [
-          "Drama",
-          "Action",
-          "Crime"
-        ],
-        "image": {
-          "medium": "http://static.tvmaze.com/uploads/images/medium_portrait/141/353883.jpg"
-        },
-        "url": "http://www.tvmaze.com/shows/60/ncis"
-      }
+      },     
   ]
 
 
   constructor(private apollo: Apollo) {}
   ngOnInit(){
-    console.log('New arry',this.newArr);
+   
     this.apollo
     .watchQuery({
       query: gql`
@@ -202,6 +151,7 @@ export class HomepageShowComponent implements OnInit {
             medium
           }
           url
+          premiered
       }
     }
       `,

@@ -1,8 +1,13 @@
 <div class="sidebar">
   <h3>Genres</h3>
   <p (click)="changeGenre('')">Remove filter</p>
-  <div class="sidebar-desktop">
-    <p (click)="changeGenre(genre)" *ngFor="let genre of genres">{{genre}}</p>
+  <div class="sidebar-desktop">    
+
+    <div class="sb-tags sb-it">      
+      <ul class="tag-items">
+        <li (click)="changeGenre(genre)" *ngFor="let genre of genres"><a href="javascript:void(0)">{{genre}}</a></li>        
+      </ul>
+    </div>
   </div>
 
   <div class="sidebar-mobile">

@@ -17,42 +17,9 @@
   <div class="page-single">
     <div class="container">
       <div class="row ipad-width2">
-        <div class="col-md-3 col-sm-12 col-xs-12">
-          <div class="user-information">
-            <div class="user-img">
-              <a href="#"
-                ><img src="/assets/files/images//uploads/user-img.png" alt="" /><br
-              /></a>
-              <h4>Admin Name</h4>
-              <br>
-              <a href="#" class="redbtn">Change avatar</a>
-            </div>
-            <div class="user-fav">
-              <p>Dashboard</p>
-              <ul>                
-                <li class="active">
-                  <a href="userfavoritelist">Shows</a>
-                </li>
-                <li><a href="userrate">Users</a></li>
-                <li><a href="userrate">Link</a></li>
-                <li><a href="userrate">Link</a></li>
-                <li><a href="userrate">Link</a></li>
-                <li><a href="userrate">Link</a></li>
-                <li><a href="userrate">Link</a></li>
-                <li><a href="userrate">Link</a></li>
-              </ul>
-            </div>
-            <div class="user-fav">
-              <p>Profile</p>
-              <ul>
-                <li><a href="#">Change password</a></li>
-                <li><a href="#">Log out</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
+      <app-dash-side-bar></app-dash-side-bar>
         <div class="col-md-9 col-sm-12 col-xs-12">
-            <a href="#" class="redbtn pull-right signupLink">Add new</a>
+          <button type="button" data-toggle="modal" data-target="#myModal" class="redbtn pull-right">Add new</button>
           <div class="topbar-filter user">
             <p>Found <span>1,608 movies</span> in total</p>
             <label>Sort by:</label>
@@ -371,5 +338,66 @@
         </div>
       </div>
     </div>
+  </div>
+</div>
+
+<!-- Add new modal -->
+
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Add new show</h4>
+      </div>      
+      <div class="modal-body">
+        <form class="form-style-1 celebrity-form" action="#">
+          <div class="row">
+            <div class="col-md-12 form-it">
+              <label>Show name</label>
+              <input type="text" placeholder="Enter name">
+            </div>
+            <div class="col-md-12 form-it">
+              <label>show genres</label>
+              <select>
+                <option value="range">A</option>
+                <option value="saab">B</option>
+              </select>
+            </div>
+            <div class="col-md-12 form-it">
+              <label>Category</label>
+              <select>
+                <option value="range">Actress</option>
+                <option value="saab">Others</option>
+              </select>
+            </div>
+            <div class="col-md-12 form-it">
+              <label>Year of birth</label>
+              <div class="row">
+                <div class="col-md-6">
+                  <select>
+                    <option value="range">1970</option>
+                    <option value="number">Other</option>
+                  </select>
+                </div>
+                <div class="col-md-6">
+                  <select>
+                    <option value="range">1990</option>
+                    <option value="number">others</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-12 ">
+              <input class="submit" type="submit" value="submit">
+            </div>
+          </div>
+        </form>           
+    </div>
+
   </div>
 </div>

@@ -18,6 +18,9 @@ import { DashShowsComponent } from './dashboard/dash-shows/dash-shows.component'
 import { Err404CompoComponent } from './components/err404-compo/err404-compo.component';
 import { LoginComponent } from './components/+auth/login/login.component';
 import { SignUpComponent } from './components/+auth/signUp/signUp.component';
+import { DashUsersComponent } from './dashboard/dash-users/dash-users.component';
+import { DashAdminPorfileComponent } from './dashboard/dash-admin-porfile/dash-admin-porfile.component';
+import { DashSideBarComponent } from './dashboard/dash-side-bar/dash-side-bar.component';
 
 @NgModule({
   declarations: [
@@ -33,7 +36,10 @@ import { SignUpComponent } from './components/+auth/signUp/signUp.component';
     DashShowsComponent,
     Err404CompoComponent,
     LoginComponent,
-    SignUpComponent
+    SignUpComponent,
+    DashUsersComponent,
+    DashAdminPorfileComponent,
+    DashSideBarComponent
   ],
   imports: [
     BrowserModule,

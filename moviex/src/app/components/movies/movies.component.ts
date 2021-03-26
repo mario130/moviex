@@ -35,6 +35,7 @@ export class MoviesComponent implements OnInit {
               weight
               summary
               genres
+              premiered
               rating {
                 average
               }
@@ -65,7 +66,7 @@ export class MoviesComponent implements OnInit {
   }
   ngOnChanges(){
     if (this.selectedGenre !== ''){
-      this.filteredShows = this.shows.filter(show => {
+      this.filteredShows = this.shows?.filter(show => {
         return show.genres.includes(this.selectedGenre)
       })
     } else {
@@ -76,11 +77,11 @@ export class MoviesComponent implements OnInit {
   setPage(page) {
     // localStorage.setItem("pageIndex", page);
     // get pager object from service
-    this.pager = this.moviesService.getPager(this.filteredShows.length, page,16);
+    this.pager = this.moviesService.getPager(this.filteredShows?.length, page,9);
     // get current page of items
     console.log(this.pager);
 
-    this.pagedItems = this.filteredShows.slice(
+    this.pagedItems = this.filteredShows?.slice(
       this.pager.startIndex,
       this.pager.endIndex + 1
     );

@@ -8,15 +8,11 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  constructor(private router: Router, private fb: FormBuilder) { }
+  constructor() { }
 
   ngOnInit(): void {
   }
-  routeHome() {
-    console.log('done');
-    this.router.navigate(['/home']);
-  }
 
- 
+
 
 }

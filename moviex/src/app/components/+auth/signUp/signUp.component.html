@@ -1,43 +1,72 @@
 <div class="login-wrapper" id="signup-content">
-  <div class="login-content">
-      <a href="#" class="close">x</a>
-      <h3>sign up</h3>
-      <form method="post" action="signup.php">
-          <div class="row">
-              <label for="username-2">
-                  Username:
-                  <input type="text" name="username" id="username-2" placeholder="Hugh Jackman"
-                      pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
-              </label>
-          </div>
+    <div class="login-content">
+        <a href="#" class="close">x</a>
+        <h3>sign up</h3>
+        <form [formGroup]="signUpForm" (ngSubmit)="signUp()">
+            <div class="row form-group">
+                <label for="username">Username:</label>
+                <input type="text" name="username" id="username" placeholder="Hugh Jackman"
+                    pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" class="form-control" formControlName="username"
+                    [class.invalid]="signUpForm.get('username').invalid &&signUpForm.get('username').touched" />
+                <div *ngIf="isValidInput('username')" class="alert alert-danger">
+                    <small *ngIf="validateRequired('username')">
+                        Username is required.
+                    </small>
+                    <small *ngIf="validatePattern('username')">
+                        Must be a valid username format.
+                    </small>
+                </div>
+            </div>
 
-          <div class="row">
-              <label for="email-2">
-                  your email:
-                  <input type="password" name="email" id="email-2" placeholder=""
-                      pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                      required="required" />
-              </label>
-          </div>
-          <div class="row">
-              <label for="password-2">
-                  Password:
-                  <input type="password" name="password" id="password-2" placeholder=""
-                      pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                      required="required" />
-              </label>
-          </div>
-          <div class="row">
-              <label for="repassword-2">
-                  re-type Password:
-                  <input type="password" name="password" id="repassword-2" placeholder=""
-                      pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
-                      required="required" />
-              </label>
-          </div>
-          <div class="row">
-              <button type="submit">sign up</button>
-          </div>
-      </form>
-  </div>
+            <div class="row form-group">
+                <label for="email"> your email:</label>
+                <input type="email" name="email" id="email" placeholder=""
+                    pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" class="form-control" formControlName="email"
+                    [class.invalid]="signUpForm.get('email').invalid &&signUpForm.get('email').touched" />
+                <div *ngIf="isValidInput('email')" class="alert alert-danger">
+                    <small *ngIf="validateRequired('email')">
+                        Email is required.
+                    </small>
+                    <small *ngIf="validatePattern('email')">
+                        Must be a valid email format.
+                    </small>
+                </div>
+            </div>
+            <div class="row form-group">
+                <label for="password">
+                    Password:</label>
+                <input type="password" name="password" id="password" placeholder="******"
+                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" class="form-control"
+                    formControlName="password" />
+                <div *ngIf="isValidInput('password')" class="alert alert-danger">
+                    <small *ngIf="validateRequired('password')">
+                        Passsword is required.
+                    </small>
+                    <small *ngIf="validatePattern('password')">
+                        Password must be at least 8 characters [A-z]/[symbol]/[0-9].
+                    </small>
+                </div>
+            </div>
+
+            <div class="row">
+                <label for="confirmPassword">
+                    re-type Password:</label>
+                <input type="password" name="password" id="confirmPassword" placeholder=""
+                    pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" class="form-control"
+                    formControlName="confirmPassword" />
+                <div *ngIf="isValidInput('confirmPassword')" class="alert alert-danger">
+                    <!-- <small *ngIf="validateRequired('confirmPassword')">
+                        Confirm is required.
+                    </small> -->
+                    <small *ngIf="signUpForm.errors?.misMatch" >
+                        Don't match with password
+                    </small>
+                </div>
+            </div>
+            
+            <div class="row" style="margin-top:4px ;">
+                <button type="submit" [disabled]="!signUpForm.valid">Sign up</button>
+            </div>
+        </form>
+    </div>
 </div>

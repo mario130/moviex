@@ -11,7 +11,8 @@ module.exports = {
     getById,
     create,
     update,
-    remove
+    remove,
+    getByUsername
 };
 
 async function authenticate({ username, password }) {
@@ -32,6 +33,11 @@ async function getAll() {
 async function getById(id) {
     return await User.findById(id);
 }
+
+async function getByUsername(username) {
+    return await User.findOne({username:username});
+}
+
 
 async function create(userParam) { // userParam => req.body
     if (await User.findOne({ username: userParam.username })) {

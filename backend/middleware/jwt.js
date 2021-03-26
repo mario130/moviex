@@ -9,10 +9,11 @@ function jwt() {
     return expressJwt({ secret, algorithms: ['HS256'], isRevoked }).unless({
         path: [
             // routes dont share in auth ( such home page )
-            '/api/products',
-            '/api/products/:id',
             '/api/users/authenticate',
-            '/api/users/register'
+            '/api/users/register',
+            // '/api/users/getusername/',
+            /^\/api\/users\/getusername\/.*/,
+            '/graphql'
         ]
     });
 }

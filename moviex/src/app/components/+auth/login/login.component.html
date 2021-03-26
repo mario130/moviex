@@ -53,7 +53,7 @@
       </div>
 
       <div class="row form-group">
-        <button [disabled]="loginForm.invalid||loading" routerLink="../dashboard/shows">
+        <button [disabled]="loginForm.invalid||loading">
           <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
           Login
         </button>

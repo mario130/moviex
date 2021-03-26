@@ -31,6 +31,12 @@ function getById(req, res, next) {
         .catch(err => next(err));
 }
 
+function getByUsername(req, res, next) {
+    userService.getByUsername(req.params.username)
+        .then(user => user ? res.json(user) : res.sendStatus(404))
+        .catch(err => next(err));
+}
+
 function update(req, res, next) {
     userService.update(req.params.id, req.body)
         .then(() => res.json({}))
@@ -43,4 +49,4 @@ function remove(req, res, next) {
         .catch(err => next(err));
 }
 
-module.exports = { authenticate, register, getAll, getCurrent, getById, update, remove };
+module.exports = {getByUsername, authenticate, register, getAll, getCurrent, getById, update, remove };

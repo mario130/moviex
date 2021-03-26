@@ -58,10 +58,20 @@ export class LoginComponent implements OnInit {
 
         this.loading = true;
         this.accountService.login(this.f.username.value, this.f.password.value)
+        //stored in local storage
             .pipe(first())
             .subscribe({
                 next: () => {
-                    this.router.navigate(['../dashboard/shows'], { relativeTo: this.route });
+                  let userRetrived = this.accountService.getByUsername(this.f.username.value)
+                  userRetrived.subscribe((user)=>{
+                    if (user.isAdmin&&user.isAdmin!==null) {
+                      this.router.navigate(['/dashboard/shows'], { relativeTo: this.route });
+                    }
+                    else{
+                      this.router.navigate([''], { relativeTo: this.route });
+                    }
+                  })
+
                   },
                   error: error => {
                     this.loading = false;

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
-import { Show } from '../../shared/show';
+import { Show } from '../../shared/models/show';
 import { Router} from '@angular/router';
 import{MoviesPagenationServiceService} from'./services/movies-pagenation-service.service';
 

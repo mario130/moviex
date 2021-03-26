@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Apollo, gql } from 'apollo-angular';
-import { Show } from '../shared/show';
+import { Show } from '../shared/models/show';
 
 @Component({
   selector: 'app-graph-ql',

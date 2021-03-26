@@ -458,10 +458,11 @@ $(function(){
 		$(document).on('click', function(e){
 		var target = $(e.target);
 		if ($(target).hasClass("overlay")){
-				$(target).find(loginct).each( function(){
-					$(this).removeClass("openform");
-				});
-				setTimeout( function(){
+			$(target).find(loginct).each( function(){
+				$(this).removeClass("openform");
+			});
+			setTimeout( function(){
+					console.log(target);
 					$(target).removeClass("openform");
 				}, 350);
 			}	

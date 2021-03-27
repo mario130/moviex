@@ -36,3 +36,16 @@
   background-color: #c82333;
   border-color: #bd2130;
 }
+
+.loader {
+  position: absolute;
+  background: #fff;
+  width: 97%;
+  top: 0;
+  height: 100%;
+  text-align: center;
+  display: none;
+}
+.showLoader{
+  display: block;
+}

@@ -70,7 +70,8 @@ export class LoginComponent implements OnInit {
                       location.href = '/dashboard/users'; // to call header onint again
                     }
                     else{
-                      this.router.navigate(['/users/list'], { relativeTo: this.route });
+                      //this.router.navigate(['/users/list'], { relativeTo: this.route });
+                      location.href = '/users/list';
                     }
                   })
 

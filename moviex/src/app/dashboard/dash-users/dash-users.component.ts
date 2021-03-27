@@ -9,12 +9,13 @@ import { AccountService } from 'src/app/components/+auth/_services/account.servi
 })
 export class DashUsersComponent implements OnInit {
   allUsers;  
-  
+  loading = false;
   delUser(id){
+    this.loading = true;
    this.userService.delete(id).subscribe((data) => {
-    console.log(data);    
+    this.loading = false;   
   })
-    this.ngOnInit(); // refresing page after del
+    this.ngOnInit(); 
   }
 
   constructor(private userService:AccountService, private http:HttpClient) { }
@@ -22,7 +23,9 @@ export class DashUsersComponent implements OnInit {
   ngOnInit(): void {    
     this.userService.getAllUsers().subscribe((data) => {
       this.allUsers = data
-  }); /// getting all data
+  });
+
+  
   
   }
 

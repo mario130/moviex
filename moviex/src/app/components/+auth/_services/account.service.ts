@@ -1,6 +1,6 @@
 ﻿import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { environment } from '../../../../environments/environment';
@@ -10,7 +10,7 @@ import { User } from '../../../shared/models/user';
 export class AccountService {
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
-
+    public token = JSON.parse(localStorage.getItem('user')).token;
     constructor(
         private router: Router,
         private http: HttpClient
@@ -22,6 +22,8 @@ export class AccountService {
     public get userValue(): User {
         return this.userSubject.value;
     }
+
+    
 
     //http://localhost:8000/api/users/authenticate
     login(username, password) {
@@ -37,7 +39,7 @@ export class AccountService {
         localStorage.removeItem('user');
         this.userSubject.next(null);
         this.router.navigate(['/home']);
-    }
+    } 
 
     //http://localhost:8000/api/users/register
     register(user: User) {
@@ -45,9 +47,19 @@ export class AccountService {
     }
 
     //http://localhost:8000/api/users
-    getAll() {
-        return this.http.get<User[]>(`${environment.apiUrl}/api/users`);
-    }
+    // getAll() {
+    //     return this.http.get<User[]>(`${environment.apiUrl}/api/users`);
+    // }
+
+    // New getAll 
+    getAllUsers() {
+        const headers = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.token}`
+        })
+       //return this.http.get(this.url, { headers: headers })
+       return this.http.get(`${environment.apiUrl}/api/users`, { headers: headers });
+      }
 
     //http://localhost:8000/api/users/id
     getById(id: string) {
@@ -74,14 +86,39 @@ export class AccountService {
     }
 
     //http://localhost:8000/api/users/id
-    delete(id: string) {
-        return this.http.delete(`${environment.apiUrl}/api/users/${id}`)
-            .pipe(map(x => {
-                if (id == this.userValue.id) {
-                    this.logout();
-                }
-                return x;
-            }));
-    }
+    // delete(id: string) {
+    //     console.log(id);
+        
+    //     return this.http.delete(`${environment.apiUrl}/api/users/${id}`)
+    //         .pipe(map(x => {
+    //             if (id == this.userValue.id) {
+    //                 this.logout();
+    //             }
+    //             console.log('before reyturn');
+    //             return x;
+    //         }));
+    // }
+
+
+    delete(id) {
+        console.log(this.token);
+
+        const headers = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.token}`
+        })
+       //return this.http.get(this.url, { headers: headers })
+       return this.http.delete(`${environment.apiUrl}/api/users/${id}`, { headers: headers }).pipe(map(x => {
+            if (id == this.userValue.id) {
+                this.logout();
+            }
+            console.log('before return');
+            return x;
+       }
+      ))}
+
+
+
+
 }
 export * from './account.service';

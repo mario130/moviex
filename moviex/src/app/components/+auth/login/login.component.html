@@ -1,7 +1,8 @@
-<div class="login-wrapper" id="login-content">
+<div class="container-fluid" style="background:#0f1f2c;color: #fff">
+  <div class="col-md-12">
+<div class="login-wrapper">
   <div class="login-content">
-    <a href="#" class="close">x</a>
-    <h3>LOGIN</h3>
+    <h3 style="margin-top:3em">LOGIN</h3>
     <form [formGroup]="loginForm" (ngSubmit)="login()">
 
       <!-- {{loginForm.value |json}} -->
@@ -70,4 +71,6 @@
       </div>
     </div>
   </div>
+</div>
+</div>
 </div>

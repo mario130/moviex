@@ -8,6 +8,10 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+
+  isAdmin = JSON.parse(localStorage.getItem('user')).isAdmin;
+
+  
   constructor() { }
 
   ngOnInit(): void {

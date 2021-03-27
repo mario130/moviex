@@ -1,22 +1,18 @@
 <div class="col-md-3 col-sm-12 col-xs-12">
     <div class="user-information">
       <div class="user-img">
-        <a href="#"
+        <a routerLink="/dashboard/admin"
           ><img src="/assets/files/images//uploads/user-img.png" alt="" /><br
         /></a>
         <h4>Admin Name</h4>
         <br>
-        <a href="/dashboard/admin" class="redbtn">Admin profile</a>
+        <a routerLink="/dashboard/admin" class="redbtn">Admin profile</a>
       </div>
       <div class="user-fav">
         <p>Dashboard</p>
-        <ul>                
+        <ul>                          
           <li>
-            <a href="/dashboard/shows">Shows</a>
-          </li>   
-
-          <li>
-            <a href="/dashboard/users">Users</a>
+            <a routerLink="/dashboard/users">Users</a>
           </li>   
           
         </ul>
@@ -24,8 +20,8 @@
       <div class="user-fav">
         <p>Profile</p>
         <ul>
-          <li><a href="/dashboard/admin">Change details</a></li>
-          <li><a href="/logout">Log out</a></li>
+          <li><a routerLink="/dashboard/admin">Change details</a></li>
+          <li><a href="/home">Log out</a></li>
         </ul>
       </div>
     </div>

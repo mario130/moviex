@@ -60,7 +60,7 @@ export class SignUpComponent implements OnInit {
             .pipe(first())
             .subscribe({
                 next: () => {
-                 //   this.router.navigate(['../login'], { relativeTo: this.route });
+                 // this.router.navigate(['/login'], { relativeTo: this.route });
                 },
                 error: error => {
                   this.loading = false;

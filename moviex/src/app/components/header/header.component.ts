@@ -10,13 +10,21 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 export class HeaderComponent implements OnInit {
 
   isLogged:boolean = false;
+  isAdmin:boolean = false;
+  
 
   
   constructor() { }
 
   ngOnInit(): void {         
     if(localStorage.getItem('user')!==null){
-      this.isLogged = true;            
+      this.isLogged = true;
+      if(JSON.parse(localStorage.getItem('user')).isAdmin){
+        console.log('sd');        
+        this.isAdmin = true;
+      }else{
+        
+      }           
     } 
     
   }

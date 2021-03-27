@@ -17,8 +17,9 @@ retrived:boolean=false;
   constructor(private localStorage:LocalStorageService) { }
 
   ngOnInit(): void {
+    var username = this.localStorage.get("user")["username"];
     
-    this.list=this.localStorage.get("favoriteMovie");
+    this.list=this.localStorage.get("favoriteMovie"+username);
     if(!this.list){
       alert('Your list is empty')
       location.href =  '/home';

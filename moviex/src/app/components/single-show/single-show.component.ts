@@ -98,17 +98,18 @@ export class SingleShowComponent implements OnInit {
 
   addToFavourite() {
     var temp = this.localStorage.get("favoriteMovie");
+    var username = this.localStorage.get("user")["username"];
 
     if(temp){
         for (var i = 0; i < temp.length; i++)
           this.favoirtesMovies.push(temp[i]);
 
         this.favoirtesMovies.push(this.movieData)
-        this.localStorage.set("favoriteMovie", this.favoirtesMovies);
+        this.localStorage.set("favoriteMovie"+username, this.favoirtesMovies);
         console.log("else")
     } else {
       this.favoirtesMovies.push(this.movieData);
-        this.localStorage.set("favoriteMovie", this.favoirtesMovies);
+        this.localStorage.set("favoriteMovie"+username, this.favoirtesMovies);
         console.log("if")
     }
     console.log("new elem: ", temp)

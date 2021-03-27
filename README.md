@@ -6,7 +6,7 @@
 
 ## Techs
 
-| Plugins | some |
+| Plugins | Details |
 | ------  | ------ |
 | [Angular] |  HTML enhanced for web apps! |
 | [node.js]  | evented I/O for the backend |

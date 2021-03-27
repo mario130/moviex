@@ -80,33 +80,6 @@ export class AccountService {
     }
 
     //http://localhost:8000/api/users/update/id
-    update(id, params) {
-        return this.http.put(`${environment.apiUrl}/api/users/${id}`, params)
-            .pipe(map(x => {
-                if (id == this.userValue.id) {
-                    const user = { ...this.userValue, ...params };
-                    localStorage.setItem('user', JSON.stringify(user));
-                    this.userSubject.next(user);
-                }
-                return x;
-            }));
-    }
-
-    //http://localhost:8000/api/users/id
-    // delete(id: string) {
-    //     console.log(id);
-        
-    //     return this.http.delete(`${environment.apiUrl}/api/users/${id}`)
-    //         .pipe(map(x => {
-    //             if (id == this.userValue.id) {
-    //                 this.logout();
-    //             }
-    //             console.log('before reyturn');
-    //             return x;
-    //         }));
-    // }
-
-
     delete(id) {
         let token = 'anthing';
         let userData = JSON.parse(localStorage.getItem('user'));
@@ -127,9 +100,32 @@ export class AccountService {
             return x;
        }
       ))}
+    update(id, params) {
+        let token = 'anthing';
+        let userData = JSON.parse(localStorage.getItem('user'));
+        if(userData){
+            token = userData.token;
+        }
+
+        const headers = new HttpHeaders({
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        })
+
+        return this.http.put(`${environment.apiUrl}/api/users/${id}`,params, { headers: headers }).pipe(map(x => {
+            if (id == this.userValue.id) {
+                const user = { ...this.userValue, ...params };
+                localStorage.setItem('user', JSON.stringify(user));
+                this.userSubject.next(user);
+            }
+                return x; }
+              ))}
+              
 
 
+           
+    }
 
-
-}
+    
+    
 export * from './account.service';

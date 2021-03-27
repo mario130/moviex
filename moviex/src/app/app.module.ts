@@ -22,6 +22,7 @@ import { DashAdminPorfileComponent } from './dashboard/dash-admin-porfile/dash-a
 import { DashSideBarComponent } from './dashboard/dash-side-bar/dash-side-bar.component';
 import { DashParentComponent } from './dashboard/dash-parent/dash-parent.component';
 import { UserListComponent } from './components/+auth/user-list/user-list.component';
+import { MustMatchDirective } from './_helpers/must-match.directive';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { UserListComponent } from './components/+auth/user-list/user-list.compon
     DashAdminPorfileComponent,
     DashSideBarComponent,
     DashParentComponent,
-    UserListComponent
+    UserListComponent,
+    MustMatchDirective
   ],
   imports: [
     BrowserModule,

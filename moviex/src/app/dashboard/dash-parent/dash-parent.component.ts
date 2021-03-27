@@ -11,8 +11,8 @@ import { AccountService } from 'src/app/components/+auth/_services/account.servi
 })
 export class DashParentComponent implements OnInit {
 
-  isAdmin = JSON.parse(localStorage.getItem('user')).isAdmin;
-
+  adminData = JSON.parse(localStorage.getItem('user'));
+  isAdmin = this.adminData.isAdmin;
   
 
   constructor(private router: Router) { }

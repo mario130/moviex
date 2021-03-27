@@ -8,6 +8,8 @@ import { AccountService } from 'src/app/components/+auth/_services/account.servi
   styleUrls: ['./dash-side-bar.component.scss']
 })
 export class DashSideBarComponent implements OnInit {
+  adminData = JSON.parse(localStorage.getItem('user'));
+  
   logOut(){
     alert('Are you sure you want to log out?')       
     localStorage.removeItem('user');     

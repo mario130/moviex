@@ -19,6 +19,8 @@ export class SingleShowComponent implements OnInit {
   notRateMovie: number[] = [];
   // overview:string;
   // img;
+  isLogged:boolean = false;
+  isAdmin:boolean = false;
   constructor(private activateRoute: ActivatedRoute, private apollo: Apollo, private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
@@ -30,9 +32,13 @@ export class SingleShowComponent implements OnInit {
       else {
         this.movieName = "name not sended";
       }
-      //typeof(NaN)
-      // console.log(`from single show ${this.movieName}`)
 
+      if(localStorage.getItem('user')!==null){
+        this.isLogged = true;
+        if(JSON.parse(localStorage.getItem('user')).isAdmin){
+          this.isAdmin = true;
+        }
+      }
 
       this.apollo
         .watchQuery({
@@ -93,24 +99,21 @@ export class SingleShowComponent implements OnInit {
   addToFavourite() {
     var temp = this.localStorage.get("favoriteMovie");
 
-    if (temp.lenght == 0) {
-      this.favoirtesMovies.push(this.movieData);
-      this.localStorage.set("favoriteMovie", this.favoirtesMovies);
-      console.log("if")
-    } else {
-      for (var i = 0; i < temp.length; i++)
-        this.favoirtesMovies.push(temp[i]);
+    if(temp){
+        for (var i = 0; i < temp.length; i++)
+          this.favoirtesMovies.push(temp[i]);
 
-      this.favoirtesMovies.push(this.movieData)
-      this.localStorage.set("favoriteMovie", this.favoirtesMovies);
-      console.log("else")
+        this.favoirtesMovies.push(this.movieData)
+        this.localStorage.set("favoriteMovie", this.favoirtesMovies);
+        console.log("else")
+    } else {
+      this.favoirtesMovies.push(this.movieData);
+        this.localStorage.set("favoriteMovie", this.favoirtesMovies);
+        console.log("if")
     }
     console.log("new elem: ", temp)
 
     // this.localStorage.set("favoriteMovie", this.movieData);
   }
-
-
-
 
 }

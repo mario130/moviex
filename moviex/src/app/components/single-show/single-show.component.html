@@ -53,8 +53,8 @@
                         </div>
                         <div class="rate-star">
                             <p>Rating Of This Movie: <span>{{movieData["rating"]}}</span> </p>
-                            <i *ngFor="let indx of rateMovie" class="orange fas fa-star"></i>
-                            <i *ngFor="let indx of notRateMovie" class="fas fa-star"></i>
+                            <i *ngFor="let indx of rateMovie" class="orange fas fa-star" [title]="movieData['rating']+'/10'"></i>
+                            <i *ngFor="let indx of notRateMovie" class="fas fa-star" [title]="movieData['rating']+'/10'"></i>
                         </div>
                     </div>
                     <div class="movie-tabs">

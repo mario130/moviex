@@ -163,27 +163,18 @@ export class HomepageShowComponent implements OnInit {
       `,
     })
     .valueChanges.subscribe((result: any) => {
-      // console.log(result.data.shows);
       this.shows = result?.data?.shows;
       this.loading = result.loading;
       this.error = result.error;
       this.filteredRating=result?.data?.shows;
       
-      this.bestRating = this.filteredRating?.filter(item => {
-         console.log("average:",item.rating.average)
-        
+      this.bestRating = this.filteredRating?.filter(item => {        
                   return item.rating.average>9;
         
       })
       
     });
-    // this.list=this.newArr;
-    //  this.bestRating= this.newArr.filter(item => {
-    //   item.rating["average"] >= 7
-    //   console.log("items:",item)
-    //  });
-     //  this.bestRating.sort((ele1,ele2)=>ele2.rating.average-ele1.rating.average)
-     console.log("bestrating: ",this.bestRating);
+   
      
   }
 

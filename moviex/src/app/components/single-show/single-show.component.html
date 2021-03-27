@@ -1,5 +1,5 @@
 <div class="hero mv-single-hero" [ngStyle]="{ 'background': 'url(' + movieData['imageOriginal'] + ') center center'}">
-<!-- <div class="hero mv-single-hero"> -->
+    <!-- <div class="hero mv-single-hero"> -->
     <!-- <div class="container">
         <div class="row">
             <div class="col-md-12">
@@ -15,10 +15,12 @@
                     <img [src]="movieData['imageOriginal']" alt="">
                     <div class="movie-btn">
                         <div class="btn-transform transform-vertical red">
-                            <div><a href="#" class="item item-1 redbtn"> <i class="far fa-play-circle"></i> Watch Trailer</a>
+                            <div><a href="#" class="item item-1 redbtn"> <i class="far fa-play-circle"></i> Watch
+                                    Trailer</a>
                             </div>
                             <div><a href="https://www.youtube.com/embed/o-0hcF97wy0"
-                                    class="item item-2 redbtn fancybox-media hvr-grow"><i class="far fa-play-circle"></i></a>
+                                    class="item item-2 redbtn fancybox-media hvr-grow"><i
+                                        class="far fa-play-circle"></i></a>
                             </div>
                         </div>
                         <div class="btn-transform transform-vertical">
@@ -35,9 +37,12 @@
                 <div class="movie-single-ct main-content">
                     <h1 class="bd-hd">{{movieData["name"]}}</h1>
                     <div class="social-btn">
-                        <a href="#" class="parent-btn"><i class="fas fa-heart"></i> Add to Favorite</a>
+
+                        <a class="parent-btn" (click)="addToFavourite()"  data-toggle="modal" data-target="#favoriteModal"><i
+                                class="fas fa-heart"></i> Add to Favorite</a>
                         <div class="hover-bnt">
-                            <a href="#" class="parent-btn"><i class="fas fa-share-alt"></i>share</a>
+                            <a href="#" class="parent-btn" data-toggle="modal" data-target="#favoriteModal"><i
+                                    class="fas fa-share-alt"></i>share</a>
                             <div class="hvr-item">
                                 <a href="#" class="hvr-grow"><i class="fab fa-facebook"></i></a>
                                 <a href="#" class="hvr-grow"><i class="fab fa-twitter"></i></a>
@@ -53,8 +58,10 @@
                         </div>
                         <div class="rate-star">
                             <p>Rating Of This Movie: <span>{{movieData["rating"]}}</span> </p>
-                            <i *ngFor="let indx of rateMovie" class="orange fas fa-star" [title]="movieData['rating']+'/10'"></i>
-                            <i *ngFor="let indx of notRateMovie" class="fas fa-star" [title]="movieData['rating']+'/10'"></i>
+                            <i *ngFor="let indx of rateMovie" class="orange fas fa-star"
+                                [title]="movieData['rating']+'/10'"></i>
+                            <i *ngFor="let indx of notRateMovie" class="fas fa-star"
+                                [title]="movieData['rating']+'/10'"></i>
                         </div>
                     </div>
                     <div class="movie-tabs">
@@ -112,14 +119,36 @@
                                         </div>
                                     </div>
                                 </div>
-
-
-
-
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- <div class="login-wrapper" id="FavoriteModal">
+            <div class="login-content">
+                <h3 style="margin-top:3em">Added to Favorite</h3>
+            </div>
+        </div> -->
+
+
+<!--modal-->
+<!-- Button trigger modal -->
+
+
+<!-- Modal -->
+<div class="modal fade" id="favoriteModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                        aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Added To Favorite List </h4>
             </div>
         </div>
     </div>

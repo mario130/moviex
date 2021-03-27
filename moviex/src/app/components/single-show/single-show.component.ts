@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
 import { Apollo, gql } from 'apollo-angular';
+import { LocalStorageService } from '../../shared/Services/local-storage.service'
 
 @Component({
   selector: 'app-single-show',
@@ -11,13 +12,14 @@ export class SingleShowComponent implements OnInit {
   movieName: string;
   movieData: {};
   loading = true;
+  favoirtesMovies = [];
   error: any;
   ratValue: number;
   rateMovie: number[] = [];
-  notRateMovie:number[] = [];
+  notRateMovie: number[] = [];
   // overview:string;
   // img;
-  constructor(private activateRoute: ActivatedRoute, private apollo: Apollo) { }
+  constructor(private activateRoute: ActivatedRoute, private apollo: Apollo, private localStorage: LocalStorageService) { }
 
   ngOnInit(): void {
     this.movieData = []
@@ -71,28 +73,15 @@ export class SingleShowComponent implements OnInit {
             "type": result?.data?.show.type,
             "channel": result?.data?.show.network.name
           }
-          this.ratValue=parseInt(this.movieData['rating']);
+          this.ratValue = parseInt(this.movieData['rating']);
           for (let indx = 0; indx < this.ratValue; indx++) {
             this.rateMovie[indx] = indx;
 
           }
           for (let indx = 10; indx > this.ratValue; indx--) {
-            this.notRateMovie[10-indx] = 10-indx;
+            this.notRateMovie[10 - indx] = 10 - indx;
 
           }
-
-
-          console.log("name : " + this.movieData["name"]);
-          console.log("summary : " + this.movieData["summary"]);
-          console.log("image : " + this.movieData["image"]);
-          console.log("rating : " + this.movieData["rating"]);
-          console.log("genres : " + this.movieData["genres"]);
-          console.log("channel : " + this.movieData["channel"]);
-          console.log("rate array: ", this.rateMovie);
-          console.log("not rate array: ", this.notRateMovie);
-
-
-
           this.loading = result.loading;
           this.error = result.error;
         });
@@ -101,7 +90,25 @@ export class SingleShowComponent implements OnInit {
 
   }
 
+  addToFavourite() {
+    var temp = this.localStorage.get("favoriteMovie");
 
+    if (temp.lenght == 0) {
+      this.favoirtesMovies.push(this.movieData);
+      this.localStorage.set("favoriteMovie", this.favoirtesMovies);
+      console.log("if")
+    } else {
+      for (var i = 0; i < temp.length; i++)
+        this.favoirtesMovies.push(temp[i]);
+
+      this.favoirtesMovies.push(this.movieData)
+      this.localStorage.set("favoriteMovie", this.favoirtesMovies);
+      console.log("else")
+    }
+    console.log("new elem: ", temp)
+
+    // this.localStorage.set("favoriteMovie", this.movieData);
+  }
 
 
 

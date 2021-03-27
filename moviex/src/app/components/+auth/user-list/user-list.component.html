@@ -30,83 +30,16 @@
 					<a href="celebritygrid01.html" class="grid"><i class="ion-grid "></i></a>
 				</div>
 				<div class="row">
-					<div class="col-md-12">
+					<div class="col-md-12" *ngFor="let item of favoritesList">
 						<div class="ceb-item-style-2">
-							<img src="images/uploads/ceblist1.jpg" alt="">
+							<img [src]="item.image" alt="">
 							<div class="ceb-infor">
-								<h2><a href="celebritysingle.html">Dan Stevens</a></h2>
-								<span>actor, usa</span>
-								<p>Dan Stevens was born at Croydon in Surrey on 10th October 1982. His parents are teachers. He was educated at Tonbridge School and trained in acting at the National Youth Theatre of Great Britain... </p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="ceb-item-style-2">
-							<img src="images/uploads/ceblist2.jpg" alt="">
-							<div class="ceb-infor">
-								<h2><a href="celebritysingle.html">Luke Evans</a></h2>
-								<span>actor, mexico</span>
-								<p>Luke George Evans was born in Pontypool, Wales, and grew up in Aberbargoed, in the south of Wales. He is the son of Yvonne (Lewis) and David Evans. He moved to Cardiff at the age 17...</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="ceb-item-style-2">
-							<img src="images/uploads/ceblist3.jpg" alt="">
-							<div class="ceb-infor">
-								<h2><a href="celebritysingle.html">Scarlett Johansson</a></h2>
-								<span>actress, france</span>
-								<p>Scarlett Ingrid Johansson was born in New York City. Her mother, Melanie Sloan, is from a Jewish family from the Bronx, and her father, Karsten Johansson, is a Danish-born architect, from Copenhagen...</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="ceb-item-style-2">
-							<img src="images/uploads/ceblist4.jpg" alt="">
-							<div class="ceb-infor">
-								<h2><a href="celebritysingle.html">Emma Watson</a></h2>
-								<span>actress, uk</span>
-								<p>Emma Charlotte Duerre Watson was born in Paris, France, to English parents, Jacqueline Luesby and Chris Watson, both lawyers. She moved to Oxfordshire when she was five...</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="ceb-item-style-2">
-							<img src="images/uploads/ceblist5.jpg" alt="">
-							<div class="ceb-infor">
-								<h2><a href="celebritysingle.html">Tom Hardy</a></h2>
-								<span>actor, italy	</span>
-								<p>Joan Crawford was born Lucille Fay LeSueur on March 23, 1905, in San Antonio, Texas, to Anna Belle (Johnson) and Thomas E. LeSueur, a laundry laborer. By the time she was born her parents had separated....</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="ceb-item-style-2">
-							<img src="images/uploads/ceblist6.jpg" alt="">
-							<div class="ceb-infor">
-								<h2><a href="celebritysingle.html">Joan Crawford</a></h2>
-								<span>director, sweden</span>
-								<p>Joan Crawford was born Lucille Fay LeSueur on March 23, 1905, in San Antonio, Texas, to Anna Belle (Johnson) and Thomas E. LeSueur, a laundry laborer. By the time she was born her parents had separated....</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="ceb-item-style-2">
-							<img src="images/uploads/ceblist7.jpg" alt="">
-							<div class="ceb-infor">
-								<h2><a href="celebritysingle.html">Margot Robbie</a></h2>
-								<span>actress, chile</span>
-								<p>Margot Robbie is an Australian actress born in Dalby, Queensland, and raised on the Gold Coast, spending much of her time at the farm belonging to her grandparents. Her mother, Sarie Kessler, is a physiotherapist....</p>
-							</div>
-						</div>
-					</div>
-					<div class="col-md-12">
-						<div class="ceb-item-style-2">
-							<img src="images/uploads/ceblist8.jpg" alt="">
-							<div class="ceb-infor">
-								<h2><a href="celebritysingle.html">Jason Momoa</a></h2>
-								<span>actor, usa</span>
-								<p>Joseph Jason Namakaeha Momoa was born on August 1, 1979 in Honolulu, Hawaii. He is the son of Coni (Lemke), a photographer, and Joseph Momoa, a painter...</p>
+								<h2><a [href]="item.url">{{item.name}}</a></h2>
+								<p [innerHTML]="item.summary"> </p>
+								<p>{{item.rating}}/10</p>
+								<i *ngFor="let indx of rateMovie" class="orange fas fa-star"></i><br>
+								<!-- <button style="height:5rem; width: 8rem; background-color: rgb(19, 92, 19); color: white;
+								outline: none; border-radius: 30%; font-size: 0.9rem;">Remove movie</button> -->
 							</div>
 						</div>
 					</div>
@@ -117,7 +50,7 @@
 						<option value="range">36 Reviews</option>
 						<option value="saab">18 Reviews</option>
 					</select>
-					
+
 					<div class="pagination2">
 						<span>Page 1 of 6:</span>
 						<a class="active" href="#">1</a>
@@ -132,7 +65,7 @@
 			</div>
 			<div class="col-md-3 col-xs-12 col-sm-12">
 				<div class="sidebar">
-						<div class="searh-form">
+					<div class="searh-form">
 						<h4 class="sb-title">Search celebrity</h4>
 						<form class="form-style-1 celebrity-form" action="#">
 							<div class="row">
@@ -143,15 +76,15 @@
 								<div class="col-md-12 form-it">
 									<label>Celebrity Letter</label>
 									<select>
-									  <option value="range">A</option>
-									  <option value="saab">B</option>
+										<option value="range">A</option>
+										<option value="saab">B</option>
 									</select>
 								</div>
 								<div class="col-md-12 form-it">
 									<label>Category</label>
 									<select>
-									  <option value="range">Actress</option>
-									  <option value="saab">Others</option>
+										<option value="range">Actress</option>
+										<option value="saab">Others</option>
 									</select>
 								</div>
 								<div class="col-md-12 form-it">
@@ -159,14 +92,14 @@
 									<div class="row">
 										<div class="col-md-6">
 											<select>
-											  <option value="range">1970</option>
-											  <option value="number">Other</option>
+												<option value="range">1970</option>
+												<option value="number">Other</option>
 											</select>
 										</div>
 										<div class="col-md-6">
 											<select>
-											  <option value="range">1990</option>
-											  <option value="number">others</option>
+												<option value="range">1990</option>
+												<option value="number">others</option>
 											</select>
 										</div>
 									</div>

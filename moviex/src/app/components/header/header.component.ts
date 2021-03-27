@@ -11,26 +11,24 @@ export class HeaderComponent implements OnInit {
 
   isLogged:boolean = false;
   isAdmin:boolean = false;
-  
 
-  
+
+
   constructor() { }
   logOut(){
-    alert('Are you sure you want to log out?')       
-    localStorage.removeItem('user');     
+    alert('Are you sure you want to log out?')
+    localStorage.removeItem('user');
     location.href = '/home'; // to recall data
    }
-  ngOnInit(): void {         
+  ngOnInit(): void {
     if(localStorage.getItem('user')!==null){
       this.isLogged = true;
       if(JSON.parse(localStorage.getItem('user')).isAdmin){
-        console.log('sd');        
+        console.log('sd');
         this.isAdmin = true;
-      }else{
-        
-      }           
-    } 
-    
+      }
+    }
+
   }
 
 

@@ -11,6 +11,7 @@ list=[];
 rateMovie: number[] = [];
 notRateMovie:number[] = [];
 ratValue: number;
+userName: string;
 
   constructor(private localStorage:LocalStorageService) { }
 
@@ -23,10 +24,13 @@ ratValue: number;
       this.rateMovie[indx] = indx;
 
     }
-    
+
+    const userInLocalStorage = JSON.parse(localStorage.getItem('user'))
+    this.userName = userInLocalStorage.username
+
     console.log("lenght:",this.favoritesList.length);
 
   }
 
-  
+
 }

@@ -40,12 +40,12 @@
                             Home
                         </a>
 
-                    </li>                   
+                    </li>
                 </ul>
-                <ul class="nav navbar-nav flex-child-menu menu-right">                    
+                <ul class="nav navbar-nav flex-child-menu menu-right">
                     <li *ngIf='isLogged'><a (click)="logOut()">LOG out</a></li>
-                    <li *ngIf='isLogged && isAdmin'><a href="/dashboard/users">Dashboard</a></li> 
-                    <li *ngIf='isLogged && !isAdmin'><a href="/users/list">My list</a></li> 
+                    <li *ngIf='isLogged && isAdmin'><a href="/dashboard/users">Dashboard</a></li>
+                    <li *ngIf='isLogged && !isAdmin'><a href="/users/list">My list</a></li>
                     <li *ngIf='!isLogged'><a routerLink="/login">LOG In</a></li>
                     <li class="btn" *ngIf='!isLogged'><a routerLink="/register">sign up</a></li>
                 </ul>
@@ -55,4 +55,3 @@
 
     </div>
 </header>
-

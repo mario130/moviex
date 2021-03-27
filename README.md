@@ -23,4 +23,4 @@ npm i
 node app
 ```
 
-> Team: `Mohamed Mahfouz` `Mohamed Foad` `Mario Magdy` `Sabrin Saber` 
+> Team: `Mohamed Mahfouz` `Mohammed Foad` `Mario Yonan` `Sabrien Saber` 

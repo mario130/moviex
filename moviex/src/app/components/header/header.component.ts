@@ -15,7 +15,11 @@ export class HeaderComponent implements OnInit {
 
   
   constructor() { }
-
+  logOut(){
+    alert('Are you sure you want to log out?')       
+    localStorage.removeItem('user');     
+    location.href = '/home'; // to recall data
+   }
   ngOnInit(): void {         
     if(localStorage.getItem('user')!==null){
       this.isLogged = true;

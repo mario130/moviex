@@ -3,6 +3,7 @@
 <div class="login-wrapper">
   <div class="login-content">
     <h3 style="margin-top:3em">LOGIN</h3>
+    <div class="alert alert-danger" *ngIf='backWithErro'>{{message}}</div>
     <form [formGroup]="loginForm" (ngSubmit)="login()">
 
       <!-- {{loginForm.value |json}} -->
@@ -58,8 +59,7 @@
           <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
           Login
         </button>
-      </div>
-      <small *ngIf="message!=''" class="alert alert-danger">{{message}}</small>
+      </div>      
 
     </form>
 

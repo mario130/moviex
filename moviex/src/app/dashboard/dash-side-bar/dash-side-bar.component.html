@@ -4,9 +4,9 @@
         <a routerLink="/dashboard/admin"
           ><img src="/assets/files/images//uploads/user-img.png" alt="" /><br
         /></a>
-        <h4>Admin Name</h4>
+        <h4>{{adminData.firstName + adminData.lastName}}</h4>
         <br>
-        <a routerLink="/dashboard/admin" class="redbtn">Admin profile</a>
+        <a routerLink="/dashboard/admin" class="redbtn">Edit profile</a>
       </div>
       <div class="user-fav">
         <p>Dashboard</p>
@@ -21,7 +21,7 @@
         <p>Profile</p>
         <ul>
           <li><a routerLink="/dashboard/admin">Change details</a></li>
-          <li><a class="logout" (click)="logOut()">Log out</a></li>
+          <li><a class="logout" (click)="logOut()">Log out - {{adminData.firstName}}</a></li>
         </ul>
       </div>
     </div>

@@ -49,27 +49,10 @@
                             Home
                         </a>
 
-                    </li>
-                    <!-- <li class="dropdown first">
-                        <a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
-                            movies<i class="fa fa-angle-down" aria-hidden="true"></i>
-                        </a>
-                        <ul class="dropdown-menu level1">
-                            <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Movie grid<i class="ion-ios-arrow-forward"></i></a>
-                                <ul class="dropdown-menu level2">
-                                    <li><a href="moviegrid.html">Movie grid</a></li>
-                                    <li><a href="moviegridfw.html">movie grid full width</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="movielist.html">Movie list</a></li>
-                            <li><a href="moviesingle.html">Movie single</a></li>
-                            <li class="it-last"><a href="seriessingle.html">Series single</a></li>
-                        </ul>
-                    </li> -->
+                    </li>                   
                 </ul>
-                <ul class="nav navbar-nav flex-child-menu menu-right">
-
+                <ul class="nav navbar-nav flex-child-menu menu-right">                    
+                    <li *ngIf='isLogged'><a (click)="logOut()">LOG out</a></li>
                     <li *ngIf='isLogged && isAdmin'><a href="/dashboard/users">Dashboard</a></li> 
                     <li *ngIf='isLogged && !isAdmin'><a href="/users/list">My list</a></li> 
                     <li *ngIf='!isLogged'><a routerLink="/login">LOG In</a></li>
@@ -82,78 +65,3 @@
     </div>
 </header>
 
-
-<!--
-<div class="modal  p-4" id="signInModal">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            modal header
-            <div class="modal-header" id="modalHeader">
-                <div class="modal-title d-flex justify-content-center">
-                    <h2>SIGN UP</h2>
-                </div>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-            </div>
-            Modal body
-            <div class="modal-body">
-                <form class="" target="_blank">
-                    <div class="form-group">
-                        <label>USERNAME:</label>
-                        <input class="form-control" type="text" name="Name" required placeholder="username">
-
-                        <label>EMAIL:</label>
-                        <input class="form-control" type="text" name="Email" required placeholder="E-mail">
-
-                        <label>YOUR PASSWORD:</label>
-                        <input class="form-control" type="text" name="Message" required placeholder="password">
-                        <label>RE-TYPE PASSWORD:</label>
-                        <input class="form-control" type="text" name="Message" required placeholder="re-type password">
-                    </div>
-                    <div class="row p-2  d-flex justify-content-center ">
-                        <button type="submit" class="btn  btn-lg shadow-lg rounded-pill SignBtn">SIGN UP</button>
-                    </div>
-                </form>
-
-            </div>
-
-        </div>
-
-    </div>
-</div>
-<div class="modal  p-4" id="logInModal">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            modal header
-            <div class="modal-header" id="modalHeader">
-                <div class="modal-title d-flex justify-content-center">
-                    <h2>LOGIN</h2>
-                </div>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-
-            </div>
-            Modal body
-            <div class="modal-body">
-                <form [formGroup]="loginForm" target="_blank">
-                    <div class="form-group">
-                        <label>USERNAME:</label>
-                        <input class="form-control" type="email" name="email" class="form-control"
-                            formControlName="email" required placeholder="username">
-                    </div>
-                    <div class="form-group">
-                        <label>YOUR PASSWORD:</label>
-                        <input class="form-control" type="password" name="password" class="form-control"
-                            formControlName="password" required placeholder="password">
-                    </div>
-                    <div class="row p-2  d-flex justify-content-center ">
-                        <button [disabled]="!loginForm.valid" type="submit"
-                            class="btn  btn-lg shadow-lg rounded-pill SignBtn">LOGIN</button>
-                    </div>
-                </form>
-
-            </div>
-
-        </div>
-
-    </div>
-</div> -->

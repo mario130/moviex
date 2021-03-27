@@ -1,6 +1,13 @@
 
-
-
+	function sendMsg() {		
+		let message = $("#messageContent");
+		if (message.val() !='') {
+			location.href = `mailto:moa.mahfouz@gmail.com?&body=${message.val()}`;
+			$("#sent").fadeIn(100);
+		}else{
+			alert('Please provide a subject and a message body!')
+		}
+	}
 
 
 //preloading for page

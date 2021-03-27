@@ -4,28 +4,19 @@
       <div class="slick-multiItemSlider">
         <div class="movie-item" *ngFor="let show of newArr">
           <div class="mv-img">
-            <a href="#"
-              ><img
-                src="{{ show.image.medium }}"
-                alt=""
-                width="285"
-                height="437"
-            /></a>
+            <a href="#"><img src="{{ show.image.medium }}" alt="" width="285" height="437" /></a>
           </div>
           <div class="title-in">
             <div class="cate">
-              <span class="yell"
-                ><a href="/singleShow/{{ show.name }}">{{
+              <span class="yell"><a href="/singleShow/{{ show.name }}">{{
                   show.genres[0]
-                }}</a></span
-              >
+                  }}</a></span>
             </div>
             <h6>
               <a href="/singleShow/{{ show.name }}">{{ show.name }}</a>
             </h6>
             <p>
-              <i class="orange fas fa-star"></i
-              ><span>{{ show.rating.average }}</span> /10
+              <i class="orange fas fa-star"></i><span>{{ show.rating.average }}</span> /10
             </p>
           </div>
         </div>
@@ -39,9 +30,7 @@
     <div class="row ipad-width">
       <div class="col-md-3">
         <div class="sidebar">
-          <app-sidebar
-            (selectedGenre)="showFilteredShows($event)"
-          ></app-sidebar>
+          <app-sidebar (selectedGenre)="showFilteredShows($event)"></app-sidebar>
         </div>
       </div>
 
@@ -52,43 +41,55 @@
   </div>
 </div>
 
-<div class="latestnew">
+<div class="movie-items">
+  <div class="container">
+    <div class="title-hd" style="display: flex; justify-content: center; align-items: center;">
+      <h1 style="color: white;">Hiegher Rating</h1>
+    </div>
+    <div class="row ipad-width">
+      <div class="blog-item-style-2 col-md-2" *ngFor="let item of bestRating">
+        <a routerLink="/singleShow/{{item.name}}"><img [src]="item.image.medium"></a>
+        <div class="blog-it-infor">
+          <h3><a routerLink="/singleShow/{{item.name}}">{{item.name}}</a></h3>
+          <span class="time">{{item.premiered}}</span>
+          <p><i class="orange fas fa-star"></i><span>{{item.rating.average}}</span> /10</p>
+          <p [innerHTML]="item.summary.substring(0,70)"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="latestnew"> 
   <div class="container">
     <div class="row ipad-width">
-      <div class="ads">
-        <!-- <img
-          src="/assets/files/images/uploads/ads2.png"
-          alt=""
-          width="728"
-          height="106"
-        /> -->
-      </div>
       <div class="col-md-12">
         <div class="title-hd">
-          <h2>Best of week</h2>
+          <h2>Hiegher Rating</h2>
         </div>
-        <div class="tabs">
+        <div class="tabs" *ngFor="let item of bestRating">
           <div class="tab-content">
             <div id="tab31" class="tab active">
               <div class="row">
-                <div class="blog-item-style-1">
+                <div class="blog-item-style-1" >
                   <img
-                    src="{{ newArr[4].image.medium }}"
+                    src="{{ item.image.medium }}"
                     width="170"
                     height="250"
                   />
                   <div class="blog-it-infor">
                     <h3>
-                      <a href="/singleShow/{{ newArr[4].name }}">{{
-                        newArr[4].name
+                      <a href="/singleShow/{{ item.name }}">{{
+                        item.name
                       }}</a>
                     </h3>
                     <span class="time">13 hours ago</span>
                     <p>
                       <i class="orange fas fa-star"></i
-                      ><span>{{ newArr[4].rating.average }}</span> /10
+                      ><span>{{item.rating.average }}</span> /10
                     </p>
-                    <p [innerHTML]="newArr[4].summary"></p>
+                    <p [innerHTML]="item.summary"></p>
                   </div>
                 </div>
               </div>
@@ -98,4 +99,4 @@
       </div>
     </div>
   </div>
-</div>
+</div>  -->

@@ -11,6 +11,8 @@ export class HomepageShowComponent implements OnInit {
   shows: Observable<Show[]>;
   loading = true;
   error: any;
+  bestRating=[];
+  list=[];
   selectedGenre: string;
   showFilteredShows(genre){
     this.selectedGenre = genre;
@@ -162,6 +164,11 @@ export class HomepageShowComponent implements OnInit {
       this.loading = result.loading;
       this.error = result.error;
     });
+    this.list=this.newArr;
+     this.bestRating= this.list.filter(item => item.rating.average >= 7);
+     this.bestRating.sort((ele1,ele2)=>ele2.rating.average-ele1.rating.average)
+     console.log("rating: ",this.bestRating);
+     
   }
   ngAfterOnInit() {
     

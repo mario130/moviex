@@ -1,3 +1,8 @@
+
+
+
+
+
 //preloading for page
 $(window).on('load', function() { // makes sure the whole site is loaded 
 	var status = $('#status');
@@ -567,3 +572,7 @@ $(function(){
 	// });
 
 });
+
+
+
+

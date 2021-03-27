@@ -14,13 +14,13 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SingleShowComponent } from './components/single-show/single-show.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { MovieComponent } from './components/movies/movie/movie.component';
-import { DashShowsComponent } from './dashboard/dash-shows/dash-shows.component';
 import { Err404CompoComponent } from './components/err404-compo/err404-compo.component';
 import { LoginComponent } from './components/+auth/login/login.component';
 import { SignUpComponent } from './components/+auth/signUp/signUp.component';
 import { DashUsersComponent } from './dashboard/dash-users/dash-users.component';
 import { DashAdminPorfileComponent } from './dashboard/dash-admin-porfile/dash-admin-porfile.component';
 import { DashSideBarComponent } from './dashboard/dash-side-bar/dash-side-bar.component';
+import { DashParentComponent } from './dashboard/dash-parent/dash-parent.component';
 
 @NgModule({
   declarations: [
@@ -33,13 +33,13 @@ import { DashSideBarComponent } from './dashboard/dash-side-bar/dash-side-bar.co
     SingleShowComponent,
     SidebarComponent,
     MovieComponent,
-    DashShowsComponent,
     Err404CompoComponent,
     LoginComponent,
     SignUpComponent,
     DashUsersComponent,
     DashAdminPorfileComponent,
-    DashSideBarComponent
+    DashSideBarComponent,
+    DashParentComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,33 @@
-<p>dash-users works!</p>
+
+       
+       
+<div class="table-wrap">
+  <div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>        
+        <th>First Name</th>
+        <th>Last name</th>
+        <th>Register Date</th>
+        <th>Role</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let i of allUsers">        
+        <td>{{i.firstName}}</td>
+        <td>{{i.lastName}}</td>
+        <td>{{i.createdDate.substring(0,10)}}</td>
+        <td *ngIf="i.isAdmin==false">User</td> 
+        <td *ngIf="i.isAdmin==true">Admin</td>   
+        <td>
+          <button class="btn btn-danger" (click)="delUser(i.id)"><span class="fa fa-trash"></span></button>          
+        </td>    
+      
+      </tr>      
+    </tbody>
+  </table>
+</div>
+</div>
+
+

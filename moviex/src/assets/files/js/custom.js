@@ -453,74 +453,74 @@ $(function(){
             lightboxprev.attr("title", prev);
         }
     });
-	//==js for login and sign up
-	var loginLink = $(".loginLink");
-	var signupLink = $(".signupLink");
-	var loginct = $( "#login-content" );
-	var signupct= $("#signup-content");
-	var loginWrap = $(".login-wrapper");
-	var overlay = $(".overlay");
-	loginWrap.each( function(){
-		$(this).wrap('<div class="overlay"></div>')
-	});
-	//pop up for login form
-    loginLink.on('click', function(event){
-    	event.preventDefault();
-    	loginct.parents(overlay).addClass("openform");
-		$(document).on('click', function(e){
-		var target = $(e.target);
-		if ($(target).hasClass("overlay")){
-			$(target).find(loginct).each( function(){
-				$(this).removeClass("openform");
-			});
-			setTimeout( function(){
-					console.log(target);
-					$(target).removeClass("openform");
-				}, 350);
-			}	
-		});
-    });
-    //pop up for signup form
-    signupLink.on('click', function(event){
-    	event.preventDefault();
-    	signupct.parents(overlay).addClass("openform");
-		$(document).on('click', function(e){
-		var target = $(e.target);
-		if ($(target).hasClass("overlay")){
-				$(target).find(signupct).each( function(){
-					$(this).removeClass("openform");
-				});
-				setTimeout( function(){
-					$(target).removeClass("openform");
-				}, 350);
-			}	
-		});
-    });
-    // close popup for mobile
-    var closebt = $(".close");
-   	closebt.on('click', function(e){
-		e.preventDefault();
-		var overlay = $(".overlay");
-		overlay.removeClass("openform");
-	});	
-    //js for multi selected
-    var multiselect = $(".ui.fluid.dropdown");
-    multiselect.dropdown({
-		allowLabels:true
-	})
-	multiselect.dropdown({'set selected': 'Role1,Role2'});
-	//== scroll function for single page
-	$(window).scroll(function(event) {
-		/* Act on the event */
-		var scrollPos = $(window).scrollTop(),
-		header = $('header');
-		//sticky for menu
-		if(scrollPos > 300){
-			header.addClass('sticky');
-		}else{
-			header.removeClass('sticky');
-		}
-	});		
+	// //==js for login and sign up
+	// var loginLink = $(".loginLink");
+	// var signupLink = $(".signupLink");
+	// var loginct = $( "#login-content" );
+	// var signupct= $("#signup-content");
+	// var loginWrap = $(".login-wrapper");
+	// var overlay = $(".overlay");
+	// loginWrap.each( function(){
+	// 	$(this).wrap('<div class="overlay"></div>')
+	// });
+	// //pop up for login form
+    // loginLink.on('click', function(event){
+    // 	event.preventDefault();
+    // 	loginct.parents(overlay).addClass("openform");
+	// 	$(document).on('click', function(e){
+	// 	var target = $(e.target);
+	// 	if ($(target).hasClass("overlay")){
+	// 		$(target).find(loginct).each( function(){
+	// 			$(this).removeClass("openform");
+	// 		});
+	// 		setTimeout( function(){
+	// 				console.log(target);
+	// 				$(target).removeClass("openform");
+	// 			}, 350);
+	// 		}	
+	// 	});
+    // });
+    // //pop up for signup form
+    // signupLink.on('click', function(event){
+    // 	event.preventDefault();
+    // 	signupct.parents(overlay).addClass("openform");
+	// 	$(document).on('click', function(e){
+	// 	var target = $(e.target);
+	// 	if ($(target).hasClass("overlay")){
+	// 			$(target).find(signupct).each( function(){
+	// 				$(this).removeClass("openform");
+	// 			});
+	// 			setTimeout( function(){
+	// 				$(target).removeClass("openform");
+	// 			}, 350);
+	// 		}	
+	// 	});
+    // });
+    // // close popup for mobile
+    // var closebt = $(".close");
+   	// closebt.on('click', function(e){
+	// 	e.preventDefault();
+	// 	var overlay = $(".overlay");
+	// 	overlay.removeClass("openform");
+	// });	
+    // //js for multi selected
+    // var multiselect = $(".ui.fluid.dropdown");
+    // multiselect.dropdown({
+	// 	allowLabels:true
+	// })
+	// multiselect.dropdown({'set selected': 'Role1,Role2'});
+	// //== scroll function for single page
+	// $(window).scroll(function(event) {
+	// 	/* Act on the event */
+	// 	var scrollPos = $(window).scrollTop(),
+	// 	header = $('header');
+	// 	//sticky for menu
+	// 	if(scrollPos > 300){
+	// 		header.addClass('sticky');
+	// 	}else{
+	// 		header.removeClass('sticky');
+	// 	}
+	// });		
 	//back to top js
 	var backtotop = $('#back-to-top');
     backtotop.on('click', function (e) {

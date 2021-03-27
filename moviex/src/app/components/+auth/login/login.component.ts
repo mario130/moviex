@@ -65,10 +65,11 @@ export class LoginComponent implements OnInit {
                   let userRetrived = this.accountService.getByUsername(this.f.username.value)
                   userRetrived.subscribe((user)=>{
                     if (user.isAdmin&&user.isAdmin!==null) {
-                      this.router.navigate(['/dashboard/shows'], { relativeTo: this.route });
+                      //this.router.navigate(['/dashboard/users'], { relativeTo: this.route });
+                      location.href = '/dashboard/users'; // to call header onint again
                     }
                     else{
-                      this.router.navigate([''], { relativeTo: this.route });
+                      this.router.navigate(['/users/list'], { relativeTo: this.route });
                     }
                   })
 

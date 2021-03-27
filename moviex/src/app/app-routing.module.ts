@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/+auth/login/login.component';
 import { SignUpComponent } from './components/+auth/signUp/signUp.component';
+import { UserListComponent } from './components/+auth/user-list/user-list.component';
 import { Err404CompoComponent } from './components/err404-compo/err404-compo.component';
 import { HomepageShowComponent } from './components/homepage-show/homepage-show.component';
 import { SingleShowComponent } from './components/single-show/single-show.component';
@@ -13,6 +14,7 @@ const routes: Routes = [
   {path:'',redirectTo:'/home',pathMatch:'full'},
   {path:'home',component:HomepageShowComponent},
   {path:'login',component:LoginComponent},
+  {path:'users/list',component:UserListComponent},  
   {path:'register',component:SignUpComponent},
   {path:'singleShow/:name',component:SingleShowComponent},
   {path:'dashboard',component:DashParentComponent,

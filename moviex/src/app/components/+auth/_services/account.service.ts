@@ -10,7 +10,9 @@ import { User } from '../../../shared/models/user';
 export class AccountService {
     private userSubject: BehaviorSubject<User>;
     public user: Observable<User>;
-    public token = JSON.parse(localStorage.getItem('user')).token;
+    
+    //public token = JSON.parse(localStorage.getItem('user')).token;
+    
     constructor(
         private router: Router,
         private http: HttpClient
@@ -53,9 +55,14 @@ export class AccountService {
 
     // New getAll 
     getAllUsers() {
+        let token = 'anthing';
+        let userData = JSON.parse(localStorage.getItem('user'));
+        if(userData){
+            token = userData.token;
+        }
         const headers = new HttpHeaders({
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this.token}`
+          'Authorization': `Bearer ${token}`
         })
        //return this.http.get(this.url, { headers: headers })
        return this.http.get(`${environment.apiUrl}/api/users`, { headers: headers });
@@ -101,11 +108,15 @@ export class AccountService {
 
 
     delete(id) {
-        console.log(this.token);
+        let token = 'anthing';
+        let userData = JSON.parse(localStorage.getItem('user'));
+        if(userData){
+            token = userData.token;
+        }
 
         const headers = new HttpHeaders({
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${this.token}`
+          'Authorization': `Bearer ${token}`
         })
        //return this.http.get(this.url, { headers: headers })
        return this.http.delete(`${environment.apiUrl}/api/users/${id}`, { headers: headers }).pipe(map(x => {

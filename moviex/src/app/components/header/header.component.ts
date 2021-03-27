@@ -9,12 +9,16 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 })
 export class HeaderComponent implements OnInit {
 
-  isAdmin = JSON.parse(localStorage.getItem('user')).isAdmin;
+  isLogged:boolean = false;
 
   
   constructor() { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {         
+    if(localStorage.getItem('user')!==null){
+      this.isLogged = true;            
+    } 
+    
   }
 
 

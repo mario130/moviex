@@ -21,6 +21,7 @@ import { DashUsersComponent } from './dashboard/dash-users/dash-users.component'
 import { DashAdminPorfileComponent } from './dashboard/dash-admin-porfile/dash-admin-porfile.component';
 import { DashSideBarComponent } from './dashboard/dash-side-bar/dash-side-bar.component';
 import { DashParentComponent } from './dashboard/dash-parent/dash-parent.component';
+import { UserListComponent } from './components/+auth/user-list/user-list.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { DashParentComponent } from './dashboard/dash-parent/dash-parent.compone
     DashUsersComponent,
     DashAdminPorfileComponent,
     DashSideBarComponent,
-    DashParentComponent
+    DashParentComponent,
+    UserListComponent
   ],
   imports: [
     BrowserModule,

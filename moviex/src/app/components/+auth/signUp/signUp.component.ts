@@ -60,17 +60,17 @@ export class SignUpComponent implements OnInit {
             .pipe(first())
             .subscribe({
                 next: () => {
-                 // this.router.navigate(['/login'], { relativeTo: this.route });
+                 this.router.navigate(['/login'], { relativeTo: this.route });
                 },
                 error: error => {
                   this.loading = false;
                    this.message = error.error.message
                 },complete() {
                   //hide popup
-                  var elems = document.querySelectorAll(".overlay");
-                  [].forEach.call(elems, function(elem) {
-                    elem.classList.remove("openform");
-                  });
+                  // var elems = document.querySelectorAll(".overlay");
+                  // [].forEach.call(elems, function(elem) {
+                  //   elem.classList.remove("openform");
+                  // });
                 }
             });
            

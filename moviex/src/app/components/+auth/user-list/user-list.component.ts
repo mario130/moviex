@@ -12,23 +12,33 @@ rateMovie: number[] = [];
 notRateMovie:number[] = [];
 ratValue: number;
 userName: string;
+retrived:boolean=false;
 
   constructor(private localStorage:LocalStorageService) { }
 
   ngOnInit(): void {
-    this.list=this.localStorage.get("favoriteMovie")
+    
+    this.list=this.localStorage.get("favoriteMovie");
+    if(!this.list){
+      alert('Your list is empty')
+      location.href =  '/home';
+    }
     this.favoritesList=this.favoritesList.concat(this.list);
     console.log("revieved storage: ",this.favoritesList);
     // this.ratValue=this.favoritesList['rating'];
-    for (let indx = 0; indx < 4; indx++) {
-      this.rateMovie[indx] = indx;
+    for (let index = 0; index < 4; index++) {
+      this.rateMovie[index] = index;
 
     }
 
     const userInLocalStorage = JSON.parse(localStorage.getItem('user'))
     this.userName = userInLocalStorage.username
+    if (this.favoritesList) {
+      this.retrived = true;
+      console.log("lenght:",this.favoritesList.length);
+    }
 
-    console.log("lenght:",this.favoritesList.length);
+   
 
   }
 

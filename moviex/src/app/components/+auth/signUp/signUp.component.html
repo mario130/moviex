@@ -83,7 +83,7 @@
     
           <!-- Register -->
           <div class="row form-group">
-            <button class="redbtn"[disabled]="registerationForm.invalid||loading" routerLink="/login">
+            <button type="submit" class="redbtn" [disabled]="registerationForm.invalid||loading">
               <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
               Register
             </button>
